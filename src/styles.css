@@ -41,37 +41,40 @@
 :root {
   --radius: 0.75rem;
 
-  /* RC LiFi brand */
-  --deep: oklch(0.28 0.13 258);           /* deep brand blue #0B3D91-ish */
-  --deep-foreground: oklch(0.985 0 0);
-  --cyan-glow: oklch(0.82 0.16 220);      /* cyan accent #00D4FF-ish */
+  /* RC LiFi brand colors - Lighter aesthetic with deep navy & luminous cyan accents */
+  --deep: oklch(0.28 0.13 258);           /* Deep brand blue #0B3D91 */
+  --deep-foreground: oklch(0.99 0 0);
+  --cyan-glow: oklch(0.65 0.20 215);      /* Luminous cyan accent */
 
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.19 0.05 258);
+  --background: oklch(0.985 0.005 240);    /* Soft crisp light background */
+  --foreground: oklch(0.18 0.05 258);     /* High-contrast dark navy text */
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.19 0.05 258);
+  --card-foreground: oklch(0.18 0.05 258);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.19 0.05 258);
+  --popover-foreground: oklch(0.18 0.05 258);
   --primary: oklch(0.28 0.13 258);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.96 0.02 240);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.95 0.015 240);
   --secondary-foreground: oklch(0.28 0.13 258);
-  --muted: oklch(0.965 0.012 240);
-  --muted-foreground: oklch(0.45 0.04 258);
-  --accent: oklch(0.82 0.16 220);
-  --accent-foreground: oklch(0.19 0.05 258);
+  --muted: oklch(0.95 0.01 240);
+  --muted-foreground: oklch(0.42 0.04 258);
+  --accent: oklch(0.65 0.20 215);
+  --accent-foreground: oklch(0.99 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0 0);
-  --border: oklch(0.91 0.02 240);
-  --input: oklch(0.91 0.02 240);
-  --ring: oklch(0.82 0.16 220);
+  --border: oklch(0.90 0.015 240);
+  --input: oklch(0.90 0.015 240);
+  --ring: oklch(0.65 0.20 215);
 
-  --gradient-hero: radial-gradient(1200px 600px at 80% -10%, oklch(0.82 0.16 220 / 0.35), transparent 60%),
-                    radial-gradient(900px 500px at 10% 20%, oklch(0.45 0.20 258 / 0.55), transparent 60%),
-                    linear-gradient(160deg, oklch(0.18 0.08 258) 0%, oklch(0.10 0.06 258) 60%, oklch(0.08 0.05 258) 100%);
-  --gradient-accent: linear-gradient(135deg, oklch(0.82 0.16 220), oklch(0.68 0.18 240));
-  --shadow-glow: 0 20px 60px -20px oklch(0.82 0.16 220 / 0.55);
-  --shadow-soft: 0 10px 40px -20px oklch(0.28 0.13 258 / 0.25);
+  --gradient-hero: radial-gradient(1000px 500px at 70% 0%, oklch(0.92 0.05 210 / 0.8), transparent 70%),
+                    radial-gradient(800px 400px at 20% 40%, oklch(0.94 0.04 250 / 0.7), transparent 60%),
+                    linear-gradient(180deg, oklch(0.97 0.01 240) 0%, oklch(0.99 0.005 240) 100%);
+                    
+  --gradient-accent: linear-gradient(135deg, oklch(0.28 0.13 258), oklch(0.40 0.16 230));
+  --gradient-aurora: linear-gradient(135deg, oklch(0.45 0.18 160), oklch(0.55 0.20 200), oklch(0.35 0.15 260));
+  --shadow-glow: 0 10px 30px -10px oklch(0.65 0.20 215 / 0.35);
+  --shadow-soft: 0 10px 30px -15px oklch(0.28 0.13 258 / 0.08);
+  --shadow-card: 0 4px 20px -2px rgba(11, 61, 145, 0.06), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
 }
 
 @layer base {
@@ -94,23 +97,45 @@
 @utility bg-accent-gradient {
   background: var(--gradient-accent);
 }
+@utility bg-aurora {
+  background: var(--gradient-aurora);
+}
 @utility shadow-glow {
   box-shadow: var(--shadow-glow);
 }
 @utility shadow-soft {
   box-shadow: var(--shadow-soft);
 }
+@utility shadow-card {
+  box-shadow: var(--shadow-card);
+}
 @utility text-cyan-glow {
   color: var(--cyan-glow);
 }
 
 @keyframes beam-drift {
-  0%, 100% { transform: translate3d(0,0,0); opacity: 0.6; }
-  50% { transform: translate3d(20px, -30px, 0); opacity: 0.9; }
+  0%, 100% { transform: translate3d(0,0,0); opacity: 0.7; }
+  50% { transform: translate3d(15px, -20px, 0); opacity: 1; }
+}
+@keyframes aurora-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
 }
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(24px); }
+  from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
-@utility animate-beam { animation: beam-drift 9s ease-in-out infinite; }
+
+@utility animate-beam { animation: beam-drift 8s ease-in-out infinite; }
+@utility animate-aurora { 
+  background-size: 200% 200%;
+  animation: aurora-flow 10s ease infinite; 
+}
+@utility animate-pulse-slow { animation: pulse-slow 4s ease-in-out infinite; }
 @utility animate-fade-up { animation: fade-up 0.8s ease-out both; }
+
