@@ -39,6 +39,9 @@ import {
 } from "lucide-react";
 import { RcLiFiLogo } from "../components/RcLiFiLogo";
 
+import { Header } from "../components/Header";
+import { Footer } from "../components/Footer";
+
 export const Route = createFileRoute("/")({
   component: Landing,
 });
@@ -63,109 +66,11 @@ function Landing() {
   );
 }
 
-/* ---------------- Header ---------------- */
-
-function Header() {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  const nav = [
-    { label: "Home", href: "#home" },
-    { label: "Mission", href: "#mission" },
-    { label: "Features", href: "#features" },
-    { label: "Demos & Sims", href: "#demos" },
-    { label: "Kit & Setup", href: "#kit" },
-    { label: "Oil & Gas", href: "#oil-gas" },
-    { label: "Founder", href: "#founder" },
-    { label: "Contact", href: "#contact" },
-  ];
-
-  return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/90 backdrop-blur-xl border-b border-border/60 shadow-card py-3"
-          : "bg-gradient-to-b from-white/80 to-transparent backdrop-blur-sm py-4"
-      }`}
-    >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6">
-        <a href="#home" className="group flex items-center gap-2">
-          <RcLiFiLogo className="h-10 sm:h-12 w-auto" variant="color" />
-        </a>
-
-        {/* Desktop Nav */}
-        <nav className="hidden items-center gap-7 lg:flex">
-          {nav.map((n) => (
-            <a
-              key={n.href}
-              href={n.href}
-              className="relative text-sm font-medium text-foreground/80 transition-colors hover:text-primary group py-1"
-            >
-              {n.label}
-              <span className="absolute inset-x-0 bottom-0 h-0.5 scale-x-0 bg-primary transition-transform duration-300 group-hover:scale-x-100 rounded-full" />
-            </a>
-          ))}
-        </nav>
-
-        <div className="hidden lg:flex items-center gap-4">
-          <a
-            href="#contact"
-            className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow-soft transition-all duration-300 hover:bg-primary/90 hover:shadow-glow hover:-translate-y-0.5"
-          >
-            Get in Touch
-          </a>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="p-2 text-foreground lg:hidden rounded-lg hover:bg-secondary"
-          aria-label="Toggle Navigation Menu"
-        >
-          {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
-      </div>
-
-      {/* Mobile Drawer */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden border-b border-border bg-white px-6 py-6 shadow-xl animate-fade-up">
-          <nav className="flex flex-col gap-4">
-            {nav.map((n) => (
-              <a
-                key={n.href}
-                href={n.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-base font-medium text-foreground hover:text-primary"
-              >
-                {n.label}
-              </a>
-            ))}
-            <a
-              href="#contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="mt-2 inline-flex items-center justify-center rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow-soft"
-            >
-              Get in Touch
-            </a>
-          </nav>
-        </div>
-      )}
-    </header>
-  );
-}
-
 /* ---------------- Hero Section ---------------- */
 
 function Hero() {
   return (
-    <section id="home" className="relative isolate overflow-hidden bg-hero pt-32 pb-20 sm:pb-28">
+    <section id="home" className="relative isolate overflow-hidden bg-hero bg-checkerboard pt-32 pb-20 sm:pb-28">
       {/* Subtle Aurora Ambient Glows */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute -left-20 top-1/4 h-[400px] w-[400px] rounded-full bg-cyan-500/10 blur-3xl animate-beam" />
@@ -177,96 +82,104 @@ function Hero() {
         <div className="absolute -top-20 left-1/2 h-[750px] w-[350px] -translate-x-1/2 rotate-12 bg-gradient-to-b from-cyan-400/20 via-blue-500/5 to-transparent blur-2xl opacity-70" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-6">
-        <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
-          <div className="lg:col-span-7 flex flex-col items-start">
-            <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white/80 px-4 py-1.5 text-xs font-semibold text-primary backdrop-blur shadow-sm animate-fade-up">
-              <Sparkles className="h-3.5 w-3.5 text-cyan-600" />
-              Light Fidelity (LiFi) — Next-Gen Optical Wireless
-            </span>
+      <div className="relative mx-auto max-w-7xl px-6 text-center flex flex-col items-center">
+        <div className="mb-6 animate-fade-up">
+          <RcLiFiLogo className="h-16 sm:h-24 w-auto mx-auto" variant="color" />
+        </div>
 
-            <h1
-              className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl leading-[1.1] animate-fade-up"
-              style={{ animationDelay: "0.1s" }}
-            >
-              Unbreakable Optical Connectivity at{" "}
-              <span className="bg-gradient-to-r from-primary via-cyan-600 to-blue-700 bg-clip-text text-transparent">
-                224Gb/s Throughput
-              </span>
-            </h1>
+        <h2 className="text-xl sm:text-2xl font-bold tracking-widest text-primary uppercase mb-2 animate-fade-up" style={{ animationDelay: "0.1s" }}>
+          THE FUTURE IS BRIGHT
+        </h2>
+        <h3 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground uppercase mb-10 animate-fade-up" style={{ animationDelay: "0.2s" }}>
+          LIGHT SPEED AHEAD
+        </h3>
 
-            <p
-              className="mt-6 text-lg leading-relaxed text-muted-foreground max-w-2xl animate-fade-up"
-              style={{ animationDelay: "0.2s" }}
-            >
-              RC LiFi replaces vulnerable radio frequency (RF) waves with secure, high-speed optical wireless communication: LiFi (Light Fidelity)—confining your data to the room, eliminating interference, and guaranteeing reliability for mission-critical operations.
-            </p>
+        <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white/80 px-4 py-1.5 text-xs font-semibold text-primary backdrop-blur shadow-sm animate-fade-up" style={{ animationDelay: "0.3s" }}>
+          <Sparkles className="h-3.5 w-3.5 text-cyan-600" />
+          Light Fidelity (LiFi) — Next-Gen Optical Wireless
+        </span>
 
-            <div
-              className="mt-8 flex flex-wrap items-center gap-4 animate-fade-up"
-              style={{ animationDelay: "0.3s" }}
-            >
-              <a
-                href="#demos"
-                className="group inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-white shadow-soft transition-all duration-300 hover:bg-primary/90 hover:shadow-glow hover:-translate-y-0.5"
-              >
-                Explore Live Demos
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </a>
-              <a
-                href="#kit"
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-6 py-3.5 text-sm font-semibold text-foreground shadow-sm transition-all hover:bg-secondary hover:border-primary/30"
-              >
-                View Starter Kit & Setup
-              </a>
-            </div>
+        <h1
+          className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl leading-[1.1] animate-fade-up max-w-4xl"
+          style={{ animationDelay: "0.4s" }}
+        >
+          Unbreakable Optical Connectivity at{" "}
+          <span className="bg-gradient-to-r from-primary via-cyan-600 to-blue-700 bg-clip-text text-transparent">
+            224Gb/s Throughput
+          </span>
+        </h1>
 
-            {/* Stat Row */}
-            <div
-              className="mt-12 grid w-full grid-cols-3 gap-4 border-t border-border/80 pt-6 animate-fade-up"
-              style={{ animationDelay: "0.4s" }}
-            >
-              <div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-primary">224Gb/s</div>
-                <div className="mt-1 text-xs sm:text-sm font-medium text-muted-foreground">Throughput Speed</div>
-              </div>
-              <div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-cyan-600">200–800 THz</div>
-                <div className="mt-1 text-xs sm:text-sm font-medium text-muted-foreground">Optical Spectrum</div>
-              </div>
-              <div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-blue-700">0 ms RF</div>
-                <div className="mt-1 text-xs sm:text-sm font-medium text-muted-foreground">Leakage Hazard</div>
-              </div>
-            </div>
+        <p
+          className="mt-6 text-lg leading-relaxed text-muted-foreground max-w-2xl animate-fade-up mx-auto"
+          style={{ animationDelay: "0.5s" }}
+        >
+          RC LiFi replaces vulnerable radio frequency (RF) waves with secure, high-speed optical wireless communication: LiFi (Light Fidelity)—confining your data to the room, eliminating interference, and guaranteeing reliability for mission-critical operations.
+        </p>
+
+        <div
+          className="mt-8 flex flex-wrap items-center justify-center gap-4 animate-fade-up"
+          style={{ animationDelay: "0.6s" }}
+        >
+          <a
+            href="#demos"
+            className="group inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-white shadow-soft transition-all duration-300 hover:bg-primary/90 hover:shadow-glow hover:-translate-y-0.5"
+          >
+            Explore Live Demos
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </a>
+          <a
+            href="#kit"
+            className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-6 py-3.5 text-sm font-semibold text-foreground shadow-sm transition-all hover:bg-secondary hover:border-primary/30"
+          >
+            View LumenFi Kit & Setup
+          </a>
+        </div>
+
+        {/* Stat Row */}
+        <div
+          className="mt-12 grid w-full max-w-3xl grid-cols-3 gap-4 border-y border-border/80 py-6 animate-fade-up mx-auto"
+          style={{ animationDelay: "0.7s" }}
+        >
+          <div>
+            <div className="text-2xl sm:text-3xl font-extrabold text-primary">224Gb/s</div>
+            <div className="mt-1 text-xs sm:text-sm font-medium text-muted-foreground">Throughput Speed</div>
           </div>
+          <div>
+            <div className="text-2xl sm:text-3xl font-extrabold text-cyan-600">200–800 THz</div>
+            <div className="mt-1 text-xs sm:text-sm font-medium text-muted-foreground">Optical Spectrum</div>
+          </div>
+          <div>
+            <div className="text-2xl sm:text-3xl font-extrabold text-blue-700">0 ms RF</div>
+            <div className="mt-1 text-xs sm:text-sm font-medium text-muted-foreground">Leakage Hazard</div>
+          </div>
+        </div>
 
-          {/* Hero Visual Card */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative overflow-hidden rounded-3xl border border-border/80 bg-white p-4 shadow-card">
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-900 group">
-                <img
-                  src="/lifi_light_bg.png"
-                  alt="RC LiFi Optical Environment"
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
-                
-                {/* Floating Optical Metric Badge */}
-                <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-white/20 bg-white/10 p-4 backdrop-blur-md text-white">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="h-3 w-3 rounded-full bg-cyan-400 animate-pulse" />
-                      <span className="text-xs font-semibold uppercase tracking-wider text-cyan-300">LiFi Active Optical Link</span>
-                    </div>
-                    <span className="text-xs font-bold bg-cyan-500/30 px-2 py-0.5 rounded text-cyan-200">224Gb/s</span>
+        {/* Hero Visual Card */}
+        <div className="mt-16 w-full max-w-5xl relative animate-fade-up" style={{ animationDelay: "0.8s" }}>
+          <div className="relative overflow-hidden rounded-3xl border border-border/80 bg-white p-4 shadow-card">
+            <div className="relative aspect-[21/9] rounded-2xl overflow-hidden bg-slate-900 group">
+              <img
+                src="/lifi_light_bg.png"
+                alt="RC LiFi Optical Environment"
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
+
+              {/* Floating Optical Metric Badge */}
+              <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-white/20 bg-white/10 p-4 backdrop-blur-md text-white text-left max-w-sm">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="h-3 w-3 rounded-full bg-cyan-400 animate-pulse" />
+                    <span className="text-xs font-semibold uppercase tracking-wider text-cyan-300">LiFi Active Optical Link</span>
                   </div>
-                  <p className="mt-1 text-xs text-white/80">Data confined 100% inside physical light cone.</p>
+                  <span className="text-xs font-bold bg-cyan-500/30 px-2 py-0.5 rounded text-cyan-200">224Gb/s</span>
                 </div>
+                <p className="mt-1 text-xs text-white/80">Data confined 100% inside physical light cone.</p>
               </div>
             </div>
           </div>
         </div>
+
       </div>
     </section>
   );
@@ -286,7 +199,7 @@ function MissionStatement() {
         <div className="relative mt-8 rounded-3xl border border-primary/20 bg-gradient-to-b from-blue-50/60 via-slate-50 to-white p-8 sm:p-14 shadow-card">
           <div className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-cyan-400/20 blur-3xl" />
           <div className="pointer-events-none absolute -left-12 -bottom-12 h-40 w-40 rounded-full bg-blue-500/10 blur-3xl" />
-          
+
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-snug text-foreground">
             "To illuminate the future of secure wireless connectivity by harnessing the power of light. We empower homes, small businesses, and critical industries to achieve interference-free communication, uncompromised data privacy, and high-throughput performance through advanced LiFi solutions that thrive where radio frequencies fail."
           </h2>
@@ -434,21 +347,19 @@ function SecurityVisualization() {
             <div className="mt-8 flex items-center gap-3 rounded-2xl bg-slate-100 p-1.5 border border-border">
               <button
                 onClick={() => setMode("wifi")}
-                className={`flex-1 rounded-xl py-3 text-sm font-bold transition-all ${
-                  mode === "wifi"
+                className={`flex-1 rounded-xl py-3 text-sm font-bold transition-all ${mode === "wifi"
                     ? "bg-rose-600 text-white shadow"
                     : "text-muted-foreground hover:text-foreground"
-                }`}
+                  }`}
               >
                 Vulnerable Wi-Fi (RF Leakage)
               </button>
               <button
                 onClick={() => setMode("lifi")}
-                className={`flex-1 rounded-xl py-3 text-sm font-bold transition-all ${
-                  mode === "lifi"
+                className={`flex-1 rounded-xl py-3 text-sm font-bold transition-all ${mode === "lifi"
                     ? "bg-primary text-white shadow shadow-glow"
                     : "text-muted-foreground hover:text-foreground"
-                }`}
+                  }`}
               >
                 RC LiFi (Room Containment)
               </button>
@@ -529,7 +440,7 @@ function SecurityVisualization() {
 /* ---------------- Interactive Demos & Simulations ---------------- */
 
 function InteractiveDemos() {
-  const [activeTab, setActiveTab] = useState<"speed" | "media" | "beam">("speed");
+  const [activeTab, setActiveTab] = useState<"speed" | "media" | "beam" | "congestion">("speed");
 
   // Speed Sim State
   const [selectedTech, setSelectedTech] = useState<"wifi" | "fiveg" | "lifi">("lifi");
@@ -541,6 +452,9 @@ function InteractiveDemos() {
   // Beam Sim State
   const [ceilingHeight, setCeilingHeight] = useState<number>(3.0); // meters
   const [beamAngle, setBeamAngle] = useState<number>(60); // degrees
+
+  // Congestion Sim State
+  const [userCount, setUserCount] = useState<number>(10);
 
   return (
     <section id="demos" className="relative bg-slate-50 py-24 sm:py-32">
@@ -561,33 +475,39 @@ function InteractiveDemos() {
           <div className="mt-8 inline-flex rounded-2xl bg-white p-1.5 shadow-sm border border-border">
             <button
               onClick={() => setActiveTab("speed")}
-              className={`flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-bold transition-all ${
-                activeTab === "speed"
+              className={`flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-bold transition-all ${activeTab === "speed"
                   ? "bg-primary text-white shadow"
                   : "text-muted-foreground hover:text-foreground"
-              }`}
+                }`}
             >
               <Zap className="h-4 w-4" /> Speed & Spectrum
             </button>
             <button
               onClick={() => setActiveTab("media")}
-              className={`flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-bold transition-all ${
-                activeTab === "media"
+              className={`flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-bold transition-all ${activeTab === "media"
                   ? "bg-primary text-white shadow"
                   : "text-muted-foreground hover:text-foreground"
-              }`}
+                }`}
             >
               <Tv className="h-4 w-4" /> 4K/8K & Gaming
             </button>
             <button
               onClick={() => setActiveTab("beam")}
-              className={`flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-bold transition-all ${
-                activeTab === "beam"
+              className={`flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-bold transition-all ${activeTab === "beam"
                   ? "bg-primary text-white shadow"
                   : "text-muted-foreground hover:text-foreground"
-              }`}
+                }`}
             >
               <Sun className="h-4 w-4" /> Beam & Coverage
+            </button>
+            <button
+              onClick={() => setActiveTab("congestion")}
+              className={`flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-bold transition-all ${activeTab === "congestion"
+                  ? "bg-primary text-white shadow"
+                  : "text-muted-foreground hover:text-foreground"
+                }`}
+            >
+              <Activity className="h-4 w-4" /> Multi-User Congestion
             </button>
           </div>
         </div>
@@ -609,10 +529,10 @@ function InteractiveDemos() {
                 {
                   id: "fiveg",
                   title: "5G mmWave",
-                  speed: "4.0 Gbps",
-                  latency: "10 - 25 ms",
-                  spectrum: "24 - 40 GHz",
-                  security: "Licensed RF beamforming",
+                  speed: "10 - 20 Gbps Peak",
+                  latency: "< 1 - 2 ms",
+                  spectrum: "24 - 71 GHz",
+                  security: "Line of Sight, Highly Attenuated",
                   color: "border-slate-200 bg-slate-50",
                 },
                 {
@@ -629,9 +549,8 @@ function InteractiveDemos() {
                 <div
                   key={item.id}
                   onClick={() => setSelectedTech(item.id as any)}
-                  className={`cursor-pointer rounded-2xl border p-6 transition-all ${item.color} ${
-                    selectedTech === item.id ? "ring-2 ring-primary" : ""
-                  }`}
+                  className={`cursor-pointer rounded-2xl border p-6 transition-all ${item.color} ${selectedTech === item.id ? "ring-2 ring-primary" : ""
+                    }`}
                 >
                   {item.highlight && (
                     <span className="mb-3 inline-block rounded-full bg-cyan-600 px-3 py-0.5 text-xs font-extrabold text-white">
@@ -679,17 +598,15 @@ function InteractiveDemos() {
                     <div className="mt-2 flex gap-3">
                       <button
                         onClick={() => setStreamResolution("4K")}
-                        className={`px-4 py-2 rounded-xl text-xs font-bold ${
-                          streamResolution === "4K" ? "bg-primary text-white" : "bg-slate-100 text-foreground"
-                        }`}
+                        className={`px-4 py-2 rounded-xl text-xs font-bold ${streamResolution === "4K" ? "bg-primary text-white" : "bg-slate-100 text-foreground"
+                          }`}
                       >
                         4K UHD (25 Mbps per stream)
                       </button>
                       <button
                         onClick={() => setStreamResolution("8K")}
-                        className={`px-4 py-2 rounded-xl text-xs font-bold ${
-                          streamResolution === "8K" ? "bg-primary text-white" : "bg-slate-100 text-foreground"
-                        }`}
+                        className={`px-4 py-2 rounded-xl text-xs font-bold ${streamResolution === "8K" ? "bg-primary text-white" : "bg-slate-100 text-foreground"
+                          }`}
                       >
                         8K Uncompressed (100 Mbps per stream)
                       </button>
@@ -801,11 +718,11 @@ function InteractiveDemos() {
               <div className="lg:col-span-7">
                 <div className="relative aspect-[4/3] rounded-2xl border border-slate-800 bg-slate-950 p-6 flex flex-col items-center justify-between text-white overflow-hidden">
                   <div className="text-xs font-mono text-cyan-400">OPTICAL CONE GEOMETRY SIMULATION</div>
-                  
+
                   {/* Visual Beam Cone Representation */}
                   <div className="relative w-full h-full flex items-center justify-center">
                     <div className="absolute top-2 h-4 w-16 bg-cyan-400 rounded-b-md shadow-[0_0_15px_#00D4FF]" />
-                    <div 
+                    <div
                       className="absolute top-6 bg-gradient-to-b from-cyan-400/40 via-cyan-400/10 to-transparent transition-all duration-300"
                       style={{
                         width: `${Math.min(280, beamAngle * 3)}px`,
@@ -818,6 +735,113 @@ function InteractiveDemos() {
                   <div className="text-xs font-mono text-slate-400">
                     Floor Optical Spot Size: {(2 * ceilingHeight * Math.tan(((beamAngle / 2) * Math.PI) / 180)).toFixed(2)}m
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Tab 4: Multi-User Congestion */}
+        {activeTab === "congestion" && (
+          <div className="mt-12 rounded-3xl border border-border bg-white p-8 sm:p-12 shadow-card">
+            <div className="grid gap-8 lg:grid-cols-2">
+              <div>
+                <h3 className="text-2xl font-bold text-foreground">Multi-User Congestion Simulator</h3>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  See how adding more users degrades traditional Wi-Fi due to shared RF spectrum contention, while LiFi maintains stable, dedicated bandwidth per user.
+                </p>
+
+                <div className="mt-6 space-y-4">
+                  <div>
+                    <div className="flex justify-between text-xs font-bold text-foreground mb-2">
+                      <span>Simulated Active Users: {userCount}</span>
+                    </div>
+                    <input
+                      type="range"
+                      min="1"
+                      max="50"
+                      value={userCount}
+                      onChange={(e) => setUserCount(parseInt(e.target.value))}
+                      className="w-full accent-primary"
+                    />
+                    <div className="mt-1 flex justify-between text-[10px] text-muted-foreground font-mono">
+                      <span>1 User</span>
+                      <span>50 Users</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-8 space-y-6">
+                  {/* Wi-Fi Degradation */}
+                  <div className="rounded-2xl border border-rose-200 bg-rose-50 p-4">
+                    <div className="flex items-center justify-between text-sm font-bold text-rose-800">
+                      <span>Wi-Fi 6 (RF) Speed per User</span>
+                      <span>{Math.max(5, Math.floor(1200 / userCount))} Mbps</span>
+                    </div>
+                    <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-rose-200">
+                      <div
+                        className="h-full bg-rose-500 transition-all duration-300"
+                        style={{ width: `${Math.max(5, (1200 / userCount) / 12)}%` }}
+                      />
+                    </div>
+                    <p className="mt-2 text-xs text-rose-700/80">Spectrum is shared. Ping increases, speeds drop.</p>
+                  </div>
+
+                  {/* LiFi Stability */}
+                  <div className="rounded-2xl border border-cyan-200 bg-cyan-50 p-4">
+                    <div className="flex items-center justify-between text-sm font-bold text-primary">
+                      <span>RC LiFi Speed per User</span>
+                      <span>{userCount < 10 ? "> 10 Gbps" : `${Math.max(100, Math.floor(10000 / userCount))} Mbps`}</span>
+                    </div>
+                    <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-cyan-200">
+                      <div
+                        className="h-full bg-cyan-500 transition-all duration-300"
+                        style={{ width: `${Math.min(100, (10000 / userCount) / 100)}%` }}
+                      />
+                    </div>
+                    <p className="mt-2 text-xs text-primary/80">Massive optical bandwidth prevents congestion.</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Visual Diagram */}
+              <div className="lg:col-span-1">
+                <div className="relative h-full min-h-[300px] rounded-2xl border border-slate-800 bg-slate-950 p-6 overflow-hidden flex items-center justify-center">
+                  <div className="absolute inset-0 bg-checkerboard opacity-20" />
+                  
+                  {/* Central Router */}
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-16 h-16 rounded-full bg-slate-800 border-4 border-slate-700 flex items-center justify-center">
+                     <Radio className="h-6 w-6 text-slate-400" />
+                  </div>
+
+                  {/* Users */}
+                  {Array.from({ length: Math.min(userCount, 50) }).map((_, i) => {
+                    const angle = (i / userCount) * Math.PI * 2;
+                    const radius = 80 + Math.random() * 60;
+                    const x = Math.cos(angle) * radius;
+                    const y = Math.sin(angle) * radius;
+
+                    // Calculate Wi-Fi collision visual based on count
+                    const isCongested = userCount > 15 && Math.random() > 0.5;
+
+                    return (
+                      <div
+                        key={i}
+                        className="absolute top-1/2 left-1/2 w-3 h-3 -ml-1.5 -mt-1.5 rounded-full transition-all duration-500"
+                        style={{
+                          transform: `translate(${x}px, ${y}px)`,
+                          backgroundColor: isCongested ? '#f43f5e' : '#06b6d4',
+                          boxShadow: isCongested ? '0 0 15px #f43f5e' : '0 0 15px #06b6d4'
+                        }}
+                      />
+                    );
+                  })}
+                  
+                  {userCount > 15 && (
+                    <div className="absolute bottom-4 text-xs font-mono text-rose-400 font-bold text-center w-full animate-pulse">
+                      RF Collision Domain Congested!
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -839,8 +863,8 @@ function KitSection() {
     },
     {
       icon: Cpu,
-      title: "USB LiFi Receiver Dongle / Module",
-      desc: "Compact optical USB dongle enabling instant high-speed optical network reception for laptops and workstations.",
+      title: "2x USB LiFi Receiver Dongles",
+      desc: "Includes 2 compact optical dongles. Plugs directly into any device (computers, phones, gaming systems, TVs) via USB-C or standard USB-A adapters.",
     },
     {
       icon: Zap,
@@ -868,10 +892,10 @@ function KitSection() {
             Hardware Bundle
           </span>
           <h2 className="mt-3 text-4xl font-extrabold sm:text-5xl text-foreground">
-            What's Included in the Kit
+            What's Included in the LumenFi Kit
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Everything required to deploy your first high-speed optical LiFi cell right out of the box.
+            Everything required to deploy your first high-speed optical LiFi cell right out of the box, including 2 connection dongles for your devices.
           </p>
         </div>
 
@@ -903,10 +927,15 @@ function KitSection() {
 /* ---------------- Setup Section & Compatibility Checker ---------------- */
 
 function SetupSection() {
-  // Checker state
-  const [roomSize, setRoomSize] = useState<string>("medium");
-  const [ceilingType, setCeilingType] = useState<string>("drop");
-  const [poeAvailable, setPoeAvailable] = useState<boolean>(true);
+  // Dongle Calculator state
+  const [laptops, setLaptops] = useState<number>(1);
+  const [phones, setPhones] = useState<number>(1);
+  const [tvs, setTvs] = useState<number>(0);
+  const [consoles, setConsoles] = useState<number>(0);
+  
+  const totalDevices = laptops + phones + tvs + consoles;
+  const donglesIncluded = 2;
+  const extraDonglesNeeded = Math.max(0, totalDevices - donglesIncluded);
 
   const steps = [
     {
@@ -958,57 +987,59 @@ function SetupSection() {
           ))}
         </div>
 
-        {/* Interactive Compatibility & Accessory Checker */}
+        {/* Interactive Dongle Calculator */}
         <div className="mt-16 rounded-3xl border border-primary/20 bg-white p-8 sm:p-12 shadow-card">
           <div className="grid gap-8 lg:grid-cols-12 items-center">
             <div className="lg:col-span-6 space-y-6">
               <div className="inline-flex items-center gap-1.5 rounded-full bg-cyan-50 px-3 py-1 text-xs font-bold uppercase text-cyan-800">
                 <HelpCircle className="h-3.5 w-3.5" />
-                Interactive Setup Compatibility Checker
+                Interactive Dongle Calculator
               </div>
-              <h3 className="text-2xl font-bold text-foreground">Determine Extra Required Accessories</h3>
+              <h3 className="text-2xl font-bold text-foreground">How many dongles do I need?</h3>
               <p className="mt-2 text-sm text-muted-foreground">
-                Answer a few quick room questions to check if you need extended range lenses or auxiliary POE power switches beyond the standard kit.
+                Enter the number of devices you plan to connect <strong>simultaneously</strong> to your LiFi network. Each device requires one dongle.
               </p>
 
-              <div className="space-y-4">
+              <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="text-xs font-bold text-foreground">1. Room Size / Coverage Area</label>
-                  <select
-                    value={roomSize}
-                    onChange={(e) => setRoomSize(e.target.value)}
-                    className="mt-1 w-full rounded-xl border border-border bg-slate-50 p-3 text-sm font-medium text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                  >
-                    <option value="small">Small Office / Desk Pod (&lt; 250 sq ft)</option>
-                    <option value="medium">Conference Room / Office Suite (250 - 600 sq ft)</option>
-                    <option value="large">Industrial Facility / High-Ceiling Rig (&gt; 600 sq ft)</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="text-xs font-bold text-foreground">2. Ceiling Architecture</label>
-                  <select
-                    value={ceilingType}
-                    onChange={(e) => setCeilingType(e.target.value)}
-                    className="mt-1 w-full rounded-xl border border-border bg-slate-50 p-3 text-sm font-medium text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                  >
-                    <option value="drop">Standard Drop Grid Ceiling (T-Bar)</option>
-                    <option value="hard">Hard Drywall / Concrete Ceiling</option>
-                    <option value="high">High Structural Steel Rafters (&gt; 12ft)</option>
-                  </select>
-                </div>
-
-                <div className="flex items-center gap-3">
+                  <label className="text-xs font-bold text-foreground">Laptops / Computers</label>
                   <input
-                    type="checkbox"
-                    id="poe"
-                    checked={poeAvailable}
-                    onChange={(e) => setPoeAvailable(e.target.checked)}
-                    className="h-4 w-4 rounded text-primary focus:ring-primary"
+                    type="number"
+                    min="0"
+                    value={laptops}
+                    onChange={(e) => setLaptops(parseInt(e.target.value) || 0)}
+                    className="mt-1 w-full rounded-xl border border-border bg-slate-50 p-3 text-sm font-medium text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                   />
-                  <label htmlFor="poe" className="text-xs font-medium text-foreground cursor-pointer">
-                    We already have POE+ (Power over Ethernet) network switches installed.
-                  </label>
+                </div>
+                <div>
+                  <label className="text-xs font-bold text-foreground">Phones / Tablets</label>
+                  <input
+                    type="number"
+                    min="0"
+                    value={phones}
+                    onChange={(e) => setPhones(parseInt(e.target.value) || 0)}
+                    className="mt-1 w-full rounded-xl border border-border bg-slate-50 p-3 text-sm font-medium text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-bold text-foreground">Smart TVs</label>
+                  <input
+                    type="number"
+                    min="0"
+                    value={tvs}
+                    onChange={(e) => setTvs(parseInt(e.target.value) || 0)}
+                    className="mt-1 w-full rounded-xl border border-border bg-slate-50 p-3 text-sm font-medium text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-bold text-foreground">Gaming Consoles</label>
+                  <input
+                    type="number"
+                    min="0"
+                    value={consoles}
+                    onChange={(e) => setConsoles(parseInt(e.target.value) || 0)}
+                    className="mt-1 w-full rounded-xl border border-border bg-slate-50 p-3 text-sm font-medium text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
                 </div>
               </div>
             </div>
@@ -1016,34 +1047,32 @@ function SetupSection() {
             {/* Checker Output Box */}
             <div className="lg:col-span-6">
               <div className="rounded-2xl border border-cyan-200 bg-cyan-50/50 p-6 sm:p-8">
-                <h4 className="text-base font-bold text-foreground">Recommended Setup Package:</h4>
+                <h4 className="text-base font-bold text-foreground">Required Dongles Summary:</h4>
 
                 <div className="mt-4 space-y-3">
-                  <div className="flex items-center gap-2 text-sm font-semibold text-emerald-700">
-                    <CheckCircle2 className="h-5 w-5" /> Standard RC LiFi Starter Kit (Included)
+                  <div className="flex items-center justify-between text-sm font-semibold text-slate-700">
+                    <span>Total Simultaneous Devices:</span>
+                    <span className="text-lg">{totalDevices}</span>
+                  </div>
+                  <div className="flex items-center justify-between text-sm font-semibold text-emerald-700 border-t border-cyan-200 pt-3">
+                    <span>Included in LumenFi Kit:</span>
+                    <span className="text-lg">{donglesIncluded}</span>
                   </div>
 
-                  {roomSize === "large" && (
-                    <div className="flex items-center gap-2 text-sm font-semibold text-primary">
-                      <CheckCircle2 className="h-5 w-5" /> + 1x Multi-Spot Auxiliary Expansion Transceiver
+                  {extraDonglesNeeded > 0 ? (
+                    <div className="flex items-center justify-between text-sm font-bold text-amber-700 border-t border-cyan-200 pt-3">
+                      <span>Extra Dongles Needed:</span>
+                      <span className="text-xl">{extraDonglesNeeded}</span>
                     </div>
-                  )}
-
-                  {ceilingType === "high" && (
-                    <div className="flex items-center gap-2 text-sm font-semibold text-primary">
-                      <CheckCircle2 className="h-5 w-5" /> + High-Ceiling Focus Optic Reflector Bracket
-                    </div>
-                  )}
-
-                  {!poeAvailable && (
-                    <div className="flex items-center gap-2 text-sm font-semibold text-amber-700">
-                      <CheckCircle2 className="h-5 w-5" /> + Standalone Gigabit POE+ Power Injector Wall Adapter
+                  ) : (
+                    <div className="flex items-center gap-2 text-sm font-bold text-emerald-700 border-t border-cyan-200 pt-3">
+                      <CheckCircle2 className="h-5 w-5" /> You are fully covered by the included kit!
                     </div>
                   )}
                 </div>
 
                 <div className="mt-6 border-t border-cyan-200 pt-4 text-xs text-muted-foreground">
-                  Need a custom enterprise architectural site audit? Our technical engineering team provides full spatial optical surveys.
+                  Note: Dongles connect via standard USB-C or USB-A ports. Most modern phones, laptops, and consoles support direct USB data networking.
                 </div>
               </div>
             </div>
@@ -1197,104 +1226,3 @@ function MeetTheFounder() {
   );
 }
 
-/* ---------------- Footer / Contact ---------------- */
-
-function Footer() {
-  return (
-    <footer id="contact" className="relative overflow-hidden bg-slate-950 text-white pt-24 pb-12">
-      {/* Background Ambient Glows */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -left-32 bottom-0 h-[400px] w-[400px] rounded-full bg-blue-600/10 blur-3xl" />
-        <div className="absolute -right-20 top-0 h-[350px] w-[350px] rounded-full bg-cyan-500/10 blur-3xl" />
-      </div>
-
-      <div className="relative mx-auto max-w-7xl px-6">
-        <div className="grid gap-16 lg:grid-cols-12">
-          {/* Left info column */}
-          <div className="lg:col-span-6 space-y-6">
-            <RcLiFiLogo className="h-12 w-auto" variant="light" />
-
-            <p className="max-w-md text-sm leading-relaxed text-slate-400">
-              Confining your data to the room. Eliminating radio frequency interference. Guaranteeing 224Gb/s optical wireless throughput for mission-critical operations.
-            </p>
-
-            <div className="flex items-center gap-3">
-              {[
-                { Icon: Linkedin, label: "LinkedIn" },
-                { Icon: Twitter, label: "Twitter" },
-                { Icon: Github, label: "GitHub" },
-              ].map(({ Icon, label }) => (
-                <a
-                  key={label}
-                  href="#"
-                  aria-label={label}
-                  className="grid h-10 w-10 place-items-center rounded-full border border-slate-800 bg-slate-900 text-slate-400 transition-all hover:border-cyan-400 hover:text-cyan-400"
-                >
-                  <Icon className="h-4 w-4" />
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Right contact details */}
-          <div className="lg:col-span-6 space-y-4">
-            <h3 className="text-xs font-bold uppercase tracking-widest text-cyan-400 mb-4">Contact Information</h3>
-
-            <div className="grid gap-4">
-              {/* Address */}
-              <div className="flex items-start gap-4 rounded-2xl border border-slate-800 bg-slate-900/60 p-5 backdrop-blur">
-                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-primary text-white">
-                  <MapPin className="h-5 w-5" />
-                </div>
-                <div>
-                  <div className="text-xs font-bold uppercase text-slate-400">Address</div>
-                  <div className="mt-1 text-sm font-semibold text-white">
-                    3323 N Midland Dr, Suite 113<br />
-                    Midland, TX 79707
-                  </div>
-                </div>
-              </div>
-
-              {/* Phone */}
-              <a
-                href="tel:4322227812"
-                className="flex items-center gap-4 rounded-2xl border border-slate-800 bg-slate-900/60 p-5 backdrop-blur transition-all hover:border-cyan-400/50"
-              >
-                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-primary text-white">
-                  <Phone className="h-5 w-5" />
-                </div>
-                <div>
-                  <div className="text-xs font-bold uppercase text-slate-400">Business Phone</div>
-                  <div className="mt-1 text-sm font-semibold text-white">(432) 222-7812</div>
-                </div>
-              </a>
-
-              {/* Email */}
-              <a
-                href="mailto:RW@rclifi.com"
-                className="flex items-center gap-4 rounded-2xl border border-slate-800 bg-slate-900/60 p-5 backdrop-blur transition-all hover:border-cyan-400/50"
-              >
-                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-primary text-white">
-                  <Mail className="h-5 w-5" />
-                </div>
-                <div>
-                  <div className="text-xs font-bold uppercase text-slate-400">Email Direct</div>
-                  <div className="mt-1 text-sm font-semibold text-white">RW@rclifi.com</div>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-16 border-t border-slate-800/80 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-          <div>© {new Date().getFullYear()} RC LiFi. Light Fidelity Wireless Technology. All rights reserved.</div>
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-slate-300">Privacy Policy</a>
-            <a href="#" className="hover:text-slate-300">Terms of Service</a>
-            <a href="#" className="hover:text-slate-300">Patent & IP Notices</a>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-}
