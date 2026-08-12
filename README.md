@@ -11,7 +11,7 @@ Global
 Brand name: RC LiFi
 Tagline (suggested, derived from Mission): Light-Based Internet. Zero Interference. Total Security.
 Color scheme: Blue & White with Cyan accents
-Contact email: rclif@tuta.com
+Contact email: Robert.white@rclifi.com
 Phone: TBA
 Address: TBA
 Social media: TBA
@@ -54,7 +54,7 @@ Scalable Density — each light fixture is an independent access point, supporti
 Heading: Get in Touch
 Phone: TBA
 Address: TBA
-Email: rclif@tuta.com
+Email: Robert.white@rclifi.com
 Social links: TBA (placeholder icons)
 Closing line: Thank you — RC LiFi
 Suggested page structure (single-page or multi-section site)

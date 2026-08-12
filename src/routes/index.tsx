@@ -94,10 +94,10 @@ function Hero() {
           LIGHT SPEED AHEAD
         </h3>
 
-        <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white/80 px-4 py-1.5 text-xs font-semibold text-primary backdrop-blur shadow-sm animate-fade-up" style={{ animationDelay: "0.3s" }}>
+        {/* <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white/80 px-4 py-1.5 text-xs font-semibold text-primary backdrop-blur shadow-sm animate-fade-up" style={{ animationDelay: "0.3s" }}>
           <Sparkles className="h-3.5 w-3.5 text-cyan-600" />
           Light Fidelity (LiFi) — Next-Gen Optical Wireless
-        </span>
+        </span> */}
 
         <h1
           className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl leading-[1.1] animate-fade-up max-w-4xl"
@@ -348,8 +348,8 @@ function SecurityVisualization() {
               <button
                 onClick={() => setMode("wifi")}
                 className={`flex-1 rounded-xl py-3 text-sm font-bold transition-all ${mode === "wifi"
-                    ? "bg-rose-600 text-white shadow"
-                    : "text-muted-foreground hover:text-foreground"
+                  ? "bg-rose-600 text-white shadow"
+                  : "text-muted-foreground hover:text-foreground"
                   }`}
               >
                 Vulnerable Wi-Fi (RF Leakage)
@@ -357,8 +357,8 @@ function SecurityVisualization() {
               <button
                 onClick={() => setMode("lifi")}
                 className={`flex-1 rounded-xl py-3 text-sm font-bold transition-all ${mode === "lifi"
-                    ? "bg-primary text-white shadow shadow-glow"
-                    : "text-muted-foreground hover:text-foreground"
+                  ? "bg-primary text-white shadow shadow-glow"
+                  : "text-muted-foreground hover:text-foreground"
                   }`}
               >
                 RC LiFi (Room Containment)
@@ -476,8 +476,8 @@ function InteractiveDemos() {
             <button
               onClick={() => setActiveTab("speed")}
               className={`flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-bold transition-all ${activeTab === "speed"
-                  ? "bg-primary text-white shadow"
-                  : "text-muted-foreground hover:text-foreground"
+                ? "bg-primary text-white shadow"
+                : "text-muted-foreground hover:text-foreground"
                 }`}
             >
               <Zap className="h-4 w-4" /> Speed & Spectrum
@@ -485,8 +485,8 @@ function InteractiveDemos() {
             <button
               onClick={() => setActiveTab("media")}
               className={`flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-bold transition-all ${activeTab === "media"
-                  ? "bg-primary text-white shadow"
-                  : "text-muted-foreground hover:text-foreground"
+                ? "bg-primary text-white shadow"
+                : "text-muted-foreground hover:text-foreground"
                 }`}
             >
               <Tv className="h-4 w-4" /> 4K/8K & Gaming
@@ -494,8 +494,8 @@ function InteractiveDemos() {
             <button
               onClick={() => setActiveTab("beam")}
               className={`flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-bold transition-all ${activeTab === "beam"
-                  ? "bg-primary text-white shadow"
-                  : "text-muted-foreground hover:text-foreground"
+                ? "bg-primary text-white shadow"
+                : "text-muted-foreground hover:text-foreground"
                 }`}
             >
               <Sun className="h-4 w-4" /> Beam & Coverage
@@ -503,8 +503,8 @@ function InteractiveDemos() {
             <button
               onClick={() => setActiveTab("congestion")}
               className={`flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-bold transition-all ${activeTab === "congestion"
-                  ? "bg-primary text-white shadow"
-                  : "text-muted-foreground hover:text-foreground"
+                ? "bg-primary text-white shadow"
+                : "text-muted-foreground hover:text-foreground"
                 }`}
             >
               <Activity className="h-4 w-4" /> Multi-User Congestion
@@ -808,10 +808,10 @@ function InteractiveDemos() {
               <div className="lg:col-span-1">
                 <div className="relative h-full min-h-[300px] rounded-2xl border border-slate-800 bg-slate-950 p-6 overflow-hidden flex items-center justify-center">
                   <div className="absolute inset-0 bg-checkerboard opacity-20" />
-                  
+
                   {/* Central Router */}
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-16 h-16 rounded-full bg-slate-800 border-4 border-slate-700 flex items-center justify-center">
-                     <Radio className="h-6 w-6 text-slate-400" />
+                    <Radio className="h-6 w-6 text-slate-400" />
                   </div>
 
                   {/* Users */}
@@ -836,7 +836,7 @@ function InteractiveDemos() {
                       />
                     );
                   })}
-                  
+
                   {userCount > 15 && (
                     <div className="absolute bottom-4 text-xs font-mono text-rose-400 font-bold text-center w-full animate-pulse">
                       RF Collision Domain Congested!
@@ -932,7 +932,7 @@ function SetupSection() {
   const [phones, setPhones] = useState<number>(1);
   const [tvs, setTvs] = useState<number>(0);
   const [consoles, setConsoles] = useState<number>(0);
-  
+
   const totalDevices = laptops + phones + tvs + consoles;
   const donglesIncluded = 2;
   const extraDonglesNeeded = Math.max(0, totalDevices - donglesIncluded);

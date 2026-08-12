@@ -81,7 +81,7 @@ export function Footer() {
                 </div>
                 <div>
                   <div className="text-xs font-bold uppercase text-slate-400">Email Direct</div>
-                  <div className="mt-1 text-sm font-semibold text-white">RW@rclifi.com</div>
+                  <div className="mt-1 text-sm font-semibold text-white">Robert.white@rclifi.com</div>
                 </div>
               </a>
             </div>
