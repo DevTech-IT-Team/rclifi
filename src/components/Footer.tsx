@@ -17,7 +17,7 @@ export function Footer() {
             <RcLiFiLogo className="h-12 w-auto" variant="light" />
 
             <p className="max-w-md text-sm leading-relaxed text-slate-400">
-              Confining your data to the room. Eliminating radio frequency interference. Guaranteeing 224Gb/s optical wireless throughput for mission-critical operations.
+              Confining your data to the room. Eliminating radio frequency interference. Guaranteeing Fast optical wireless throughput for mission-critical operations.
             </p>
 
             <div className="flex items-center gap-3">

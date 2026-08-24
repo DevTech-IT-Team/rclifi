@@ -77,21 +77,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "RC LiFi — Light Fidelity | 224Gb/s High-Speed Optical Wireless Internet" },
+      { title: "RC LiFi — Light Fidelity | Fast High-Speed Optical Wireless Internet" },
       {
         name: "description",
         content:
-          "RC LiFi delivers secure, 224Gb/s high-speed optical wireless communication (LiFi) — confining data to the room, eliminating radio frequency interference, and guaranteeing reliability for mission-critical operations.",
+          "RC LiFi delivers secure, Fast high-speed optical wireless communication (LiFi) — confining data to the room, eliminating radio frequency interference, and guaranteeing reliability for mission-critical operations.",
       },
       { name: "author", content: "RC LiFi" },
       {
         property: "og:title",
-        content: "RC LiFi — Light Fidelity | 224Gb/s High-Speed Optical Wireless Internet",
+        content: "RC LiFi — Light Fidelity | Fast High-Speed Optical Wireless Internet",
       },
       {
         property: "og:description",
         content:
-          "Secure, 224Gb/s optical wireless communication for defense, healthcare, oil & gas, industrial, and enterprise environments.",
+          "Secure, Fast optical wireless communication for defense, healthcare, oil & gas, industrial, and enterprise environments.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

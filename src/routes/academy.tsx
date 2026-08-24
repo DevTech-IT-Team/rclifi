@@ -65,7 +65,7 @@ function AcademyHero() {
               className="mt-6 text-lg leading-relaxed text-muted-foreground max-w-xl animate-fade-up"
               style={{ animationDelay: "0.2s" }}
             >
-              Join the LiFi Academy and gain the specialized skills needed to design, deploy, and manage the world's most secure 224Gb/s light-based communication networks.
+              Join the LiFi Academy and gain the specialized skills needed to design, deploy, and manage the world's most secure Fast light-based communication networks.
             </p>
 
             <div

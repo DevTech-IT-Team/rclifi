@@ -35,7 +35,8 @@ import {
   Server,
   Package,
   Wrench,
-  HelpCircle
+  HelpCircle,
+  Quote
 } from "lucide-react";
 import { RcLiFiLogo } from "../components/RcLiFiLogo";
 
@@ -105,7 +106,7 @@ function Hero() {
         >
           Unbreakable Optical Connectivity at{" "}
           <span className="bg-gradient-to-r from-primary via-cyan-600 to-blue-700 bg-clip-text text-transparent">
-            224Gb/s Throughput
+            Fast Throughput
           </span>
         </h1>
 
@@ -141,7 +142,7 @@ function Hero() {
           style={{ animationDelay: "0.7s" }}
         >
           <div>
-            <div className="text-2xl sm:text-3xl font-extrabold text-primary">224Gb/s</div>
+            <div className="text-2xl sm:text-3xl font-extrabold text-primary">Fast</div>
             <div className="mt-1 text-xs sm:text-sm font-medium text-muted-foreground">Throughput Speed</div>
           </div>
           <div>
@@ -172,7 +173,7 @@ function Hero() {
                     <div className="h-3 w-3 rounded-full bg-cyan-400 animate-pulse" />
                     <span className="text-xs font-semibold uppercase tracking-wider text-cyan-300">LiFi Active Optical Link</span>
                   </div>
-                  <span className="text-xs font-bold bg-cyan-500/30 px-2 py-0.5 rounded text-cyan-200">224Gb/s</span>
+                  <span className="text-xs font-bold bg-cyan-500/30 px-2 py-0.5 rounded text-cyan-200">Fast</span>
                 </div>
                 <p className="mt-1 text-xs text-white/80">Data confined 100% inside physical light cone.</p>
               </div>
@@ -225,11 +226,11 @@ function NewContentSections() {
       badge: "Performance & Spectrum",
       title: "Unmatched Speed and Bandwidth",
       fullText:
-        "Operating at frequencies around 200,000 GHz (200 THz) and extending up to 800,000 GHz, LiFi accesses a spectrum 10,000 times wider than the entire radio frequency range used by Wi-Fi. This vast bandwidth enables data transmission speeds exceeding 100 Gb/s in laboratory settings, offering a solution to the global 'spectrum crunch' and supporting ultra-high-density data environments without interference. Offering peak speeds of 224Gb/s.",
+        "Operating at frequencies around 200,000 GHz (200 THz) and extending up to 800,000 GHz, LiFi accesses a spectrum 10,000 times wider than the entire radio frequency range used by Wi-Fi. This vast bandwidth enables data transmission speeds exceeding 100 Gb/s in laboratory settings, offering a solution to the global 'spectrum crunch' and supporting ultra-high-density data environments without interference. Offering peak speeds of Fast.",
       items: [
         { title: "Spectrum Frequency Range", val: "200,000 GHz (200 THz) – 800,000 GHz" },
         { title: "10,000x Wider Spectrum", val: "Solves global RF spectrum crunch with zero interference" },
-        { title: "Peak Speeds of 224Gb/s", val: "224Gb/s Throughput for ultra-high-density data environments" },
+        { title: "Peak Speeds of Fast", val: "Fast Throughput for ultra-high-density data environments" },
         { title: "Next-Gen 6G Compatible", val: "Native alignment with 6G and smart ecosystem architecture" },
       ],
       color: "from-blue-600 to-cyan-600",
@@ -538,7 +539,7 @@ function InteractiveDemos() {
                 {
                   id: "lifi",
                   title: "RC LiFi Optical",
-                  speed: "224Gb/s Throughput",
+                  speed: "Fast Throughput",
                   latency: "< 0.5 ms",
                   spectrum: "200,000 - 800,000 GHz",
                   security: "100% Physical Room Isolation",
@@ -631,7 +632,7 @@ function InteractiveDemos() {
                   <div className="rounded-2xl bg-blue-50 p-4 border border-blue-200">
                     <div className="text-xs font-bold text-primary">LiFi Channel Capacity Status:</div>
                     <div className="mt-1 text-sm font-semibold text-foreground">
-                      🟢 224Gb/s Optical Backbone handles all {activeStreams} {streamResolution} feeds effortlessly with 99.8% headroom remaining.
+                      🟢 Fast Optical Backbone handles all {activeStreams} {streamResolution} feeds effortlessly with 99.8% headroom remaining.
                     </div>
                   </div>
                 </div>
@@ -791,12 +792,12 @@ function InteractiveDemos() {
                   <div className="rounded-2xl border border-cyan-200 bg-cyan-50 p-4">
                     <div className="flex items-center justify-between text-sm font-bold text-primary">
                       <span>RC LiFi Speed per User</span>
-                      <span>{userCount < 10 ? "> 10 Gbps" : `${Math.max(100, Math.floor(10000 / userCount))} Mbps`}</span>
+                      <span>Consistently Fast</span>
                     </div>
                     <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-cyan-200">
                       <div
                         className="h-full bg-cyan-500 transition-all duration-300"
-                        style={{ width: `${Math.min(100, (10000 / userCount) / 100)}%` }}
+                        style={{ width: `100%` }}
                       />
                     </div>
                     <p className="mt-2 text-xs text-primary/80">Massive optical bandwidth prevents congestion.</p>
@@ -956,7 +957,7 @@ function SetupSection() {
     {
       step: "04",
       title: "Instant Light Connection",
-      desc: "Verify optical alignment via status indicator LEDs and enjoy zero-lag 224Gb/s optical internet.",
+      desc: "Verify optical alignment via status indicator LEDs and enjoy zero-lag Fast optical internet.",
     },
   ];
 
@@ -1171,53 +1172,84 @@ function OilAndGasSection() {
 function MeetTheFounder() {
   return (
     <section id="founder" className="relative bg-white py-24 sm:py-32 border-y border-border/60">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
-          <div className="lg:col-span-5 relative">
-            <div className="relative overflow-hidden rounded-3xl border border-border bg-slate-100 p-4 shadow-card">
-              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-slate-200">
-                <img
-                  src="/founder_placeholder.png"
-                  alt="RC LiFi Founder & CEO"
-                  className="h-full w-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <div className="text-lg font-bold">RC LiFi Founder & Visionary</div>
-                  <div className="text-xs text-cyan-300 font-mono">Leadership & Technology Architect</div>
-                </div>
-              </div>
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="text-center space-y-4 mb-16 relative z-10">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-primary">
+            <User className="h-3.5 w-3.5" />
+            Leadership Profile
+          </span>
+          <h2 className="text-4xl font-extrabold sm:text-5xl text-foreground leading-tight tracking-tight">
+            Meet the Founder
+          </h2>
+        </div>
+
+        <div className="relative">
+          {/* Landscape Image */}
+          <div className="relative rounded-3xl overflow-hidden bg-slate-200 shadow-2xl ring-1 ring-border/50">
+            <div className="relative aspect-video md:aspect-[21/9]">
+              <img
+                src="/Robert White.jpg"
+                alt="Robert White - Founder of RC LiFi"
+                className="h-full w-full object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent mix-blend-multiply" />
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-950/60" />
             </div>
           </div>
 
-          <div className="lg:col-span-7 space-y-6">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-primary">
-              <User className="h-3.5 w-3.5" />
-              Leadership Profile
-            </span>
-            <h2 className="text-3xl font-extrabold sm:text-4xl text-foreground leading-tight">
-              Meet the Founder
-            </h2>
+          {/* Overlapping Content Card */}
+          <div className="relative -mt-24 md:-mt-48 mx-4 md:mx-12 z-20">
+            <div className="rounded-3xl border border-white/40 bg-white/95 backdrop-blur-xl p-8 md:p-12 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)]">
+              <div className="flex flex-col lg:flex-row gap-12 items-stretch">
 
-            <div className="space-y-4 text-base text-muted-foreground leading-relaxed">
-              <p className="font-semibold text-foreground italic border-l-4 border-primary pl-4 py-1">
-                "We are dedicated to pioneering optical wireless communication, replacing legacy radio spectrum constraints with the uncompromised bandwidth, privacy, and speed of light."
-              </p>
-              <p>
-                [Founder Biography Placeholder: Biography details, background in optical engineering, wireless defense communications, and commercial innovation will be updated here once provided by the client.]
-              </p>
-              <p>
-                Under our leadership team, RC LiFi continues to push boundaries across energy, healthcare, defense, and high-density enterprise environments.
-              </p>
-            </div>
+                {/* Left Side: Name, Quote and CTA */}
+                <div className="lg:w-1/3 flex flex-col justify-between space-y-10">
+                  <div className="space-y-8">
+                    <div>
+                      <h3 className="text-3xl font-extrabold text-slate-900 tracking-tight">Robert White</h3>
+                      <p className="text-primary font-bold tracking-wide uppercase text-sm mt-2">Founder of RC LiFi</p>
+                    </div>
 
-            <div className="pt-4 flex items-center gap-4">
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-soft transition-transform hover:scale-105"
-              >
-                Schedule Executive Briefing
-              </a>
+                    <div className="relative pt-6">
+                      <Quote className="absolute top-0 left-0 h-10 w-10 text-primary/20 rotate-180 -translate-x-3 -translate-y-4" />
+                      <p className="relative z-10 text-lg font-semibold text-slate-700 italic leading-relaxed">
+                        "We are dedicated to pioneering optical wireless communication, replacing legacy radio spectrum constraints with the uncompromised bandwidth, security, and speed of light."
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* CTA Block shifted to Left with Logo */}
+                  <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col gap-6">
+                    <RcLiFiLogo className="h-8 w-auto opacity-90" />
+                    <p className="font-semibold text-slate-900 text-base leading-snug">
+                      Ready to modernize your field communications with intrinsically safe, high-speed data?
+                    </p>
+                    <a
+                      href="#contact"
+                      className="inline-flex justify-center w-full items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-bold text-white shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-glow hover:bg-primary/90"
+                    >
+                      Let's Connect
+                      <ArrowRight className="h-4 w-4" />
+                    </a>
+                  </div>
+                </div>
+
+                {/* Right Side: Bio */}
+                <div className="lg:w-2/3 space-y-6 text-slate-600 leading-relaxed text-lg">
+                  <p>
+                    <span className="text-5xl font-black text-primary float-left mr-3 mt-1 leading-none">M</span>y background in the energy sector spans over a decade, starting in 2013 as a commercial driver in the Permian Basin. Throughout those years, I drove truck across nearly every major sector of the field— supporting production facilities, gas plants, midstream facilities, cathodic protection, booster stations, drilling rigs, frac setups, and wireline operations. Since January 2023, I’ve also served as a Lease Operator overseeing daily operations.
+                  </p>
+                  <p>
+                    Having spent years on the front lines of production, I saw a persistent industry challenge: <strong className="text-slate-900 font-semibold">the critical need for reliable, high-speed field connectivity where traditional networks fall short.</strong> I founded RC LiFi to solve this problem. We provide intrinsically safe Light Fidelity (LiFi) technology utilizing infrared transmission rather than radio frequencies. The result is secure, RF-free, high-speed data transfer built specifically for the demands of hazardous and signal-restricted oilfield environments.
+                  </p>
+                  <p>
+                    When I’m not innovating field communications, I’m spending quality time with my family—the original inspiration that drove me to build a career in the Permian Basin and the foundation behind everything I do.
+                  </p>
+                  <p>
+                    Under our leadership, RC LiFi is expanding access to next-generation optical wireless technology across all industries, including Oil & Gas, commercial enterprises, small businesses, and residential setups.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
