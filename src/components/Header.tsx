@@ -22,6 +22,7 @@ export function Header() {
     { label: "Kit & Setup", href: "/#kit" },
     { label: "Oil & Gas", href: "/#oil-gas" },
     { label: "Academy", href: "/academy" },
+    { label: "Gamer", href: "/gamer" },
     { label: "Contact", href: "/#contact" },
   ];
 
