@@ -1,5 +1,6 @@
-import { MapPin, Phone, Mail, Linkedin, Twitter, Github } from "lucide-react";
+import { MapPin, Phone, Mail, Linkedin, Twitter, Github, ExternalLink } from "lucide-react";
 import { RcLiFiLogo } from "./RcLiFiLogo";
+import { LUMEN } from "../lib/lumen";
 
 export function Footer() {
   return (
@@ -19,6 +20,16 @@ export function Footer() {
             <p className="max-w-md text-sm leading-relaxed text-slate-400">
               Confining your data to the room. Eliminating radio frequency interference. Guaranteeing Fast optical wireless throughput for mission-critical operations.
             </p>
+
+            <a
+              href={LUMEN.site}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 text-xs font-bold uppercase tracking-widest text-cyan-300 transition-colors hover:bg-cyan-400/20"
+            >
+              Shop LumenFi on LumenLiFi
+              <ExternalLink className="h-3.5 w-3.5" />
+            </a>
 
             <div className="flex items-center gap-3">
               {[
@@ -51,8 +62,8 @@ export function Footer() {
                 <div>
                   <div className="text-xs font-bold uppercase text-slate-400">Address</div>
                   <div className="mt-1 text-sm font-semibold text-white">
-                    3323 N Midland Dr, Suite 113<br />
-                    Midland, TX 79707
+                    7 Briercroft Office Park<br />
+                    Lubbock, Texas 79412
                   </div>
                 </div>
               </div>

@@ -13,7 +13,7 @@ Tagline (suggested, derived from Mission): Light-Based Internet. Zero Interferen
 Color scheme: Blue & White with Cyan accents
 Contact email: Robert.white@rclifi.com
 Phone: TBA
-Address: TBA
+Address: 7 Briercroft Office Park, Lubbock, Texas 79412
 Social media: TBA
 1. Hero Section
 Headline: Unbreakable, Light-Based Internet
@@ -53,7 +53,7 @@ Scalable Density — each light fixture is an independent access point, supporti
 5. Contact / Footer Section
 Heading: Get in Touch
 Phone: TBA
-Address: TBA
+Address: 7 Briercroft Office Park, Lubbock, Texas 79412
 Email: Robert.white@rclifi.com
 Social links: TBA (placeholder icons)
 Closing line: Thank you — RC LiFi
@@ -125,7 +125,7 @@ Bullets:
 5. CONTACT / FOOTER SECTION
 - Dark blue background with cyan accents
 - Heading: "Get in Touch"
-- Display: Phone: TBA, Address: TBA, Email: rclif@tuta.com (as a clickable mailto link)
+- Display: Phone: TBA, Address: 7 Briercroft Office Park, Lubbock, Texas 79412, Email: rclif@tuta.com (as a clickable mailto link)
 - Social media icon row (placeholder links, no URLs yet)
 - Closing line centered at the bottom: "Thank you — RC LiFi"
 - Small copyright line: "© 2026 RC LiFi. All rights reserved."

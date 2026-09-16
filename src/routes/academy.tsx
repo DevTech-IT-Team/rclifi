@@ -34,7 +34,7 @@ function AcademyPage() {
 
 function AcademyHero() {
   return (
-    <section className="relative isolate overflow-hidden bg-hero pt-32 pb-20 sm:pb-28 border-b border-border/60">
+    <section className="relative isolate overflow-hidden bg-hero pt-40 pb-20 sm:pt-44 sm:pb-28 border-b border-border/60">
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute -left-20 top-1/4 h-[400px] w-[400px] rounded-full bg-blue-600/10 blur-3xl animate-beam" />
         <div

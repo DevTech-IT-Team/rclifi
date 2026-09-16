@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
-import { Gamepad2, Zap, ShieldCheck, Wifi, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Gamepad2, Zap, ShieldCheck, Wifi, CheckCircle2, ExternalLink } from "lucide-react";
+import { LUMEN } from "../lib/lumen";
 
 export const Route = createFileRoute("/gamer")({
   component: GamerPage,
@@ -39,7 +40,7 @@ function GamerPage() {
     <div className="min-h-screen bg-background text-foreground font-sans antialiased selection:bg-cyan-500/20 selection:text-primary">
       <Header />
       
-      <main className="pt-24 pb-20">
+      <main className="pt-40 pb-20">
         {/* Hero Section */}
         <section className="relative w-full h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 z-0">
@@ -147,11 +148,16 @@ function GamerPage() {
                 <Gamepad2 className="text-primary w-5 h-5" /> Get Connected
               </h3>
               <p className="text-muted-foreground text-sm leading-relaxed mb-6 relative z-10">
-                Upgrade your gaming setup with RC LiFi. Experience light-speed downloads and the lowest latency possible for competitive play.
+                Upgrade your gaming setup with the LumenFi Lifi Pillar. RC LiFi resells the official kit — complete your order on LumenLiFi.
               </p>
-              <button className="w-full py-3 rounded-lg bg-primary text-primary-foreground font-bold hover:bg-primary/90 transition-colors shadow-soft relative z-10 flex items-center justify-center gap-2 group">
-                Order Your Kit <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
+              <a
+                href={LUMEN.site}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-3 rounded-lg bg-primary text-primary-foreground font-bold hover:bg-primary/90 transition-colors shadow-soft relative z-10 flex items-center justify-center gap-2 group"
+              >
+                Order Your Kit on LumenLiFi <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+              </a>
             </div>
 
             <div className="bg-card border border-border rounded-2xl p-6">

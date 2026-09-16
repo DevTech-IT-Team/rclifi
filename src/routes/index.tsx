@@ -42,6 +42,8 @@ import { RcLiFiLogo } from "../components/RcLiFiLogo";
 
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
+import { LumenFiBanner } from "../components/LumenFiBanner";
+import { LUMEN } from "../lib/lumen";
 
 export const Route = createFileRoute("/")({
   component: Landing,
@@ -53,6 +55,7 @@ function Landing() {
       <Header />
       <main>
         <Hero />
+        <LumenFiBanner />
         <MissionStatement />
         <NewContentSections />
         <SecurityVisualization />
@@ -71,7 +74,7 @@ function Landing() {
 
 function Hero() {
   return (
-    <section id="home" className="relative isolate overflow-hidden bg-hero bg-checkerboard pt-32 pb-20 sm:pb-28">
+    <section id="home" className="relative isolate overflow-hidden bg-hero bg-checkerboard pt-40 pb-20 sm:pt-44 sm:pb-28">
       {/* Subtle Aurora Ambient Glows */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute -left-20 top-1/4 h-[400px] w-[400px] rounded-full bg-cyan-500/10 blur-3xl animate-beam" />
@@ -133,6 +136,15 @@ function Hero() {
             className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-6 py-3.5 text-sm font-semibold text-foreground shadow-sm transition-all hover:bg-secondary hover:border-primary/30"
           >
             View LumenFi Kit & Setup
+          </a>
+          <a
+            href={LUMEN.site}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border border-cyan-400/40 bg-cyan-50 px-6 py-3.5 text-sm font-semibold text-primary shadow-sm transition-all hover:bg-cyan-100"
+          >
+            Pre-Order on LumenLiFi
+            <ArrowRight className="h-4 w-4" />
           </a>
         </div>
 
@@ -898,6 +910,15 @@ function KitSection() {
           <p className="mt-4 text-lg text-muted-foreground">
             Everything required to deploy your first high-speed optical LiFi cell right out of the box, including 2 connection dongles for your devices.
           </p>
+          <a
+            href={LUMEN.site}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-white shadow-soft transition-all hover:bg-primary/90 hover:shadow-glow"
+          >
+            Pre-Order this kit on LumenLiFi
+            <ArrowRight className="h-4 w-4" />
+          </a>
         </div>
 
         <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -1075,6 +1096,15 @@ function SetupSection() {
                 <div className="mt-6 border-t border-cyan-200 pt-4 text-xs text-muted-foreground">
                   Note: Dongles connect via standard USB-C or USB-A ports. Most modern phones, laptops, and consoles support direct USB data networking.
                 </div>
+                <a
+                  href={LUMEN.site}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-bold text-white transition-all hover:bg-primary/90"
+                >
+                  Order extra dongles on LumenLiFi
+                  <ArrowRight className="h-4 w-4" />
+                </a>
               </div>
             </div>
           </div>
