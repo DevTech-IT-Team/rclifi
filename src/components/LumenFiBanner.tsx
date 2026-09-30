@@ -13,7 +13,7 @@ export function LumenFiBanner() {
             <div className="flex flex-1 items-start gap-5 sm:items-center">
               <img
                 src={LUMEN.poleImage}
-                alt="LumenFi Lifi Pillar"
+                alt="LumenFi LiFi Lamp"
                 className="h-24 w-20 shrink-0 rounded-2xl object-cover object-[center_15%] ring-1 ring-white/20 sm:h-28 sm:w-24"
               />
               <div className="min-w-0 space-y-2">
@@ -21,7 +21,7 @@ export function LumenFiBanner() {
                   Shop LumenFi · Authorized reseller
                 </p>
                 <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl">
-                  Order the Lifi Pillar on LumenLiFi
+                  Order the LiFi Lamp on LumenLiFi
                 </h2>
                 <p className="max-w-xl text-sm leading-relaxed text-slate-300">
                   RC LiFi showcases the product. Purchases and pre-orders are completed on the official LumenFi store.
@@ -30,7 +30,7 @@ export function LumenFiBanner() {
             </div>
 
             <a
-              href={LUMEN.site}
+              href={LUMEN.product}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex shrink-0 items-center justify-center gap-2 self-start rounded-full bg-cyan-400 px-6 py-3.5 text-sm font-bold text-slate-950 shadow-[0_0_24px_rgba(34,211,238,0.35)] transition-all hover:-translate-y-0.5 hover:bg-cyan-300 lg:self-center"

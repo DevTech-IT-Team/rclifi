@@ -11,9 +11,9 @@ export const Route = createFileRoute("/gamer")({
 const SUPPORTED_GAMES = [
   {
     id: 1,
-    title: "Grand Theft Auto VI",
-    description: "Download massive map updates in seconds and experience the bustling streets of Leonida with zero multiplayer lag.",
-    image: "https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&w=800&auto=format&fit=crop",
+    title: "Counter-Strike 2",
+    description: "Every frame and millisecond matters. LiFi ensures absolute precision with sub-millisecond latency for competitive play.",
+    image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=800&auto=format&fit=crop",
   },
   {
     id: 2,
@@ -23,9 +23,9 @@ const SUPPORTED_GAMES = [
   },
   {
     id: 3,
-    title: "Cyberpunk 2077",
-    description: "Stream high-fidelity assets without stuttering. Ensure your connection keeps up with next-gen graphics.",
-    image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=800&auto=format&fit=crop",
+    title: "Apex Legends",
+    description: "Experience fast-paced movement and intense gunfights without the frustration of packet loss or stuttering.",
+    image: "https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&w=800&auto=format&fit=crop",
   },
   {
     id: 4,
@@ -148,10 +148,10 @@ function GamerPage() {
                 <Gamepad2 className="text-primary w-5 h-5" /> Get Connected
               </h3>
               <p className="text-muted-foreground text-sm leading-relaxed mb-6 relative z-10">
-                Upgrade your gaming setup with the LumenFi Lifi Pillar. RC LiFi resells the official kit — complete your order on LumenLiFi.
+                Upgrade your gaming setup with the LumenFi LiFi Lamp. RC LiFi resells the official kit — complete your order on LumenLiFi.
               </p>
               <a
-                href={LUMEN.site}
+                href={LUMEN.product}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full py-3 rounded-lg bg-primary text-primary-foreground font-bold hover:bg-primary/90 transition-colors shadow-soft relative z-10 flex items-center justify-center gap-2 group"

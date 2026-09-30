@@ -22,7 +22,7 @@ export function Footer() {
             </p>
 
             <a
-              href={LUMEN.site}
+              href={LUMEN.product}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 text-xs font-bold uppercase tracking-widest text-cyan-300 transition-colors hover:bg-cyan-400/20"

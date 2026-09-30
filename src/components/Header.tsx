@@ -36,7 +36,7 @@ export function Header() {
       }`}
     >
       <a
-        href={LUMEN.site}
+        href={LUMEN.product}
         target="_blank"
         rel="noopener noreferrer"
         className="flex items-center justify-center gap-2 bg-slate-950 px-4 py-2 text-center text-[11px] font-semibold tracking-wide text-cyan-100 hover:bg-slate-900 sm:text-xs"
@@ -45,7 +45,7 @@ export function Header() {
         <span className="hidden text-slate-500 sm:inline">·</span>
         <span className="inline-flex items-center gap-1 text-cyan-300">
           Pre-order the 
-          Lifi Pillar on LumenLiFi
+          LiFi Lamp on LumenLiFi
           <ExternalLink className="h-3 w-3" />
         </span>
       </a>
@@ -92,7 +92,7 @@ export function Header() {
             Get in Touch
           </a>
           <a
-            href={LUMEN.site}
+            href={LUMEN.product}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-1.5 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow-soft transition-all duration-300 hover:bg-primary/90 hover:shadow-glow hover:-translate-y-0.5"
@@ -149,7 +149,7 @@ export function Header() {
               Get in Touch
             </a>
             <a
-              href={LUMEN.site}
+              href={LUMEN.product}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}

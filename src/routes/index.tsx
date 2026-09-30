@@ -88,7 +88,7 @@ function Hero() {
 
       <div className="relative mx-auto max-w-7xl px-6 text-center flex flex-col items-center">
         <div className="mb-6 animate-fade-up">
-          <RcLiFiLogo className="h-16 sm:h-24 w-auto mx-auto" variant="color" />
+          <RcLiFiLogo className="h-24 sm:h-32 w-auto mx-auto" variant="color" />
         </div>
 
         <h2 className="text-xl sm:text-2xl font-bold tracking-widest text-primary uppercase mb-2 animate-fade-up" style={{ animationDelay: "0.1s" }}>
@@ -138,7 +138,7 @@ function Hero() {
             View LumenFi Kit & Setup
           </a>
           <a
-            href={LUMEN.site}
+            href={LUMEN.product}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full border border-cyan-400/40 bg-cyan-50 px-6 py-3.5 text-sm font-semibold text-primary shadow-sm transition-all hover:bg-cyan-100"
@@ -911,7 +911,7 @@ function KitSection() {
             Everything required to deploy your first high-speed optical LiFi cell right out of the box, including 2 connection dongles for your devices.
           </p>
           <a
-            href={LUMEN.site}
+            href={LUMEN.product}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-white shadow-soft transition-all hover:bg-primary/90 hover:shadow-glow"
@@ -1097,7 +1097,7 @@ function SetupSection() {
                   Note: Dongles connect via standard USB-C or USB-A ports. Most modern phones, laptops, and consoles support direct USB data networking.
                 </div>
                 <a
-                  href={LUMEN.site}
+                  href={LUMEN.product}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-bold text-white transition-all hover:bg-primary/90"
