@@ -61,7 +61,7 @@ function Landing() {
         <SecurityVisualization />
         <InteractiveDemos />
         <KitSection />
-        <SetupSection />
+        {/* <SetupSection /> */}
         <OilAndGasSection />
         <MeetTheFounder />
       </main>
@@ -342,47 +342,62 @@ function SecurityVisualization() {
   const [mode, setMode] = useState<"wifi" | "lifi">("lifi");
 
   return (
-    <section className="relative bg-white py-24 sm:py-32 border-y border-border/60">
-      <div className="mx-auto max-w-7xl px-6">
+    <section className="relative bg-white py-24 sm:py-32 border-y border-border/60 overflow-hidden">
+      {/* Background Decor */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
+        <div className={`absolute top-1/4 -right-1/4 w-[800px] h-[800px] rounded-full blur-[120px] transition-colors duration-1000 ${mode === 'lifi' ? 'bg-cyan-500/5' : 'bg-rose-500/5'}`} />
+      </div>
+
+      <div className="mx-auto max-w-7xl px-6 relative z-10">
         <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-5">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-cyan-50 px-3 py-1 text-xs font-bold uppercase tracking-wider text-cyan-700">
-              <Lock className="h-3.5 w-3.5" />
+            <span className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider transition-colors duration-500 ${mode === 'lifi' ? 'bg-cyan-50 text-cyan-700' : 'bg-rose-50 text-rose-700'}`}>
+              {mode === 'lifi' ? <Lock className="h-3.5 w-3.5" /> : <Wifi className="h-3.5 w-3.5" />}
               Physical Security Demo
             </span>
-            <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl text-foreground leading-tight">
-              Interactive Room Boundary Security Visualization
+            <h2 className="mt-6 text-3xl font-extrabold sm:text-4xl lg:text-5xl text-foreground leading-[1.1]">
+              Interactive Room Boundary <br/> Security Visualization
             </h2>
-            <p className="mt-4 text-base text-muted-foreground leading-relaxed">
+            <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
               Traditional Wi-Fi radiates through drywalls, glass, and doors, allowing eavesdroppers outside the perimeter to intercept packet traces. RC LiFi keeps 100% of data enclosed inside lit optical cones.
             </p>
 
-            <div className="mt-8 flex items-center gap-3 rounded-2xl bg-slate-100 p-1.5 border border-border">
+            <div className="mt-10 flex flex-col sm:flex-row items-stretch gap-3 rounded-3xl bg-slate-100/80 p-2 border border-border shadow-inner backdrop-blur-sm">
               <button
                 onClick={() => setMode("wifi")}
-                className={`flex-1 rounded-xl py-3 text-sm font-bold transition-all ${mode === "wifi"
-                  ? "bg-rose-600 text-white shadow"
-                  : "text-muted-foreground hover:text-foreground"
-                  }`}
+                className={`relative flex-1 flex items-center justify-center gap-2 rounded-2xl py-4 text-sm font-bold transition-all duration-300 ${
+                  mode === "wifi"
+                    ? "bg-white text-rose-600 shadow-md border border-rose-100"
+                    : "text-muted-foreground hover:text-foreground hover:bg-slate-200/50"
+                }`}
               >
-                Vulnerable Wi-Fi (RF Leakage)
+                {mode === "wifi" && <span className="absolute left-4 flex h-2.5 w-2.5"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span><span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-rose-500"></span></span>}
+                <Radio className="h-4 w-4" />
+                Vulnerable Wi-Fi
               </button>
               <button
                 onClick={() => setMode("lifi")}
-                className={`flex-1 rounded-xl py-3 text-sm font-bold transition-all ${mode === "lifi"
-                  ? "bg-primary text-white shadow shadow-glow"
-                  : "text-muted-foreground hover:text-foreground"
-                  }`}
+                className={`relative flex-1 flex items-center justify-center gap-2 rounded-2xl py-4 text-sm font-bold transition-all duration-300 ${
+                  mode === "lifi"
+                    ? "bg-primary text-white shadow-lg shadow-primary/30"
+                    : "text-muted-foreground hover:text-foreground hover:bg-slate-200/50"
+                }`}
               >
-                RC LiFi (Room Containment)
+                {mode === "lifi" && <span className="absolute left-4 flex h-2.5 w-2.5"><span className="animate-pulse absolute inline-flex h-full w-full rounded-full bg-cyan-300 opacity-75"></span><span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-400"></span></span>}
+                <ShieldCheck className="h-4 w-4" />
+                RC LiFi Secured
               </button>
             </div>
 
-            <div className="mt-6 rounded-2xl border border-border bg-slate-50 p-5">
-              <h4 className="text-sm font-bold text-foreground">
-                {mode === "wifi" ? "⚠️ Wi-Fi Vulnerability:" : "🛡️ RC LiFi Security Guarantee:"}
+            <div className={`mt-6 rounded-2xl border p-6 transition-all duration-500 ${mode === 'lifi' ? 'border-cyan-100 bg-cyan-50/50' : 'border-rose-100 bg-rose-50/50'}`}>
+              <h4 className={`text-sm font-bold flex items-center gap-2 ${mode === 'lifi' ? 'text-cyan-800' : 'text-rose-800'}`}>
+                {mode === "wifi" ? (
+                  <><Flame className="h-4 w-4 text-rose-500" /> Wi-Fi Vulnerability:</>
+                ) : (
+                  <><CheckCircle2 className="h-4 w-4 text-cyan-500" /> RC LiFi Security Guarantee:</>
+                )}
               </h4>
-              <p className="mt-1 text-xs text-muted-foreground">
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
                 {mode === "wifi"
                   ? "Radio waves penetrate solid drywall and glass. Attackers sitting in neighboring offices or vehicles outside can intercept packet logs without physical break-in."
                   : "Optical light waves are completely stopped by walls, doors, and blinds. Zero packet emission outside room boundaries guarantees physical layer isolation."}
@@ -391,56 +406,74 @@ function SecurityVisualization() {
           </div>
 
           <div className="lg:col-span-7">
-            <div className="relative overflow-hidden rounded-3xl border border-border bg-slate-900 p-6 sm:p-8 text-white shadow-2xl">
-              <div className="flex items-center justify-between border-b border-slate-800 pb-4 mb-6">
-                <div className="flex items-center gap-2">
-                  <span className="h-3 w-3 rounded-full bg-rose-500" />
-                  <span className="h-3 w-3 rounded-full bg-amber-500" />
-                  <span className="h-3 w-3 rounded-full bg-emerald-500" />
-                  <span className="ml-2 text-xs font-mono text-slate-400">Security-Simulator-v2.2.exe</span>
-                </div>
-                <div className="text-xs font-semibold text-cyan-400">
-                  Status: {mode === "lifi" ? "SECURE ROOM CONFINED" : "RF SIGNAL LEAKING OUTSIDE"}
-                </div>
-              </div>
+            <div className={`relative overflow-hidden rounded-[2.5rem] border-[8px] transition-colors duration-700 shadow-2xl group ${mode === 'lifi' ? 'border-cyan-950/20 shadow-cyan-900/20' : 'border-slate-900/10 shadow-rose-900/20'}`}>
+              {/* Background Image */}
+              <div className="relative aspect-[4/3] w-full bg-slate-900 overflow-hidden">
+                <img
+                  src="/secure_room.jpg"
+                  alt="Secure Meeting Room"
+                  className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ${mode === 'wifi' ? 'scale-105 opacity-60 grayscale-[30%]' : 'scale-100 opacity-90'}`}
+                />
 
-              {/* Interactive Room Canvas Visual */}
-              <div className="relative aspect-[16/10] rounded-2xl border border-slate-800 bg-slate-950 p-4 overflow-hidden">
-                {/* Room Walls Representation */}
-                <div className="absolute inset-8 rounded-xl border-4 border-dashed border-slate-600 bg-slate-900/60 p-4">
-                  <div className="absolute top-2 left-3 text-xs font-mono text-slate-400 font-bold uppercase">
-                    Confidential Room Area (Zone A)
+                {/* Overlay Effects based on mode */}
+                <div className={`absolute inset-0 transition-all duration-700 mix-blend-overlay ${mode === "lifi" ? "bg-cyan-600/40" : "bg-rose-900/60"}`} />
+
+                {/* Mode: Wi-Fi */}
+                <div className={`absolute inset-0 flex items-center justify-center transition-all duration-700 ${mode === "wifi" ? "opacity-100 scale-100" : "opacity-0 scale-110 pointer-events-none"}`}>
+                  {/* RF Rings expanding outwards */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-[150%] aspect-square rounded-full border-[8px] border-rose-500/30 animate-ping" style={{ animationDuration: '3s' }} />
+                    <div className="absolute w-[100%] aspect-square rounded-full border-[6px] border-rose-500/40 animate-ping" style={{ animationDuration: '3s', animationDelay: '1s' }} />
+                    <div className="absolute w-[50%] aspect-square rounded-full border-[4px] border-rose-500/50 animate-ping" style={{ animationDuration: '3s', animationDelay: '2s' }} />
                   </div>
-
-                  {/* Ceiling Fixture */}
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-                    <div className={`h-4 w-24 rounded-b-lg ${mode === "lifi" ? "bg-cyan-400 shadow-[0_0_20px_#00D4FF]" : "bg-blue-600"}`} />
-                    {mode === "lifi" ? (
-                      /* Cone beam inside room */
-                      <div className="w-64 h-48 bg-gradient-to-b from-cyan-400/30 via-cyan-400/10 to-transparent clip-triangle" />
-                    ) : (
-                      /* Leaking RF Waves */
-                      <div className="absolute top-4 inset-0 flex items-center justify-center">
-                        <div className="h-48 w-48 rounded-full border-2 border-rose-500/40 animate-ping" />
-                        <div className="h-72 w-72 rounded-full border-2 border-rose-500/20 animate-pulse" />
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Inside Device */}
-                  <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 rounded-lg bg-slate-800/90 px-3 py-1.5 border border-slate-700">
-                    <Cpu className="h-4 w-4 text-cyan-400" />
-                    <span className="text-xs font-mono">Secure Client Workstation</span>
+                  
+                  {/* Hacker Alert Outside */}
+                  <div className="absolute bottom-6 right-6 sm:bottom-10 sm:right-10 flex items-center gap-4 rounded-2xl bg-slate-900/95 p-4 border border-rose-500/50 shadow-[0_0_40px_rgba(244,63,94,0.4)] animate-bounce" style={{ animationDuration: '2s' }}>
+                    <div className="h-12 w-12 rounded-full bg-rose-500/20 flex items-center justify-center shrink-0">
+                      <Wifi className="h-6 w-6 text-rose-500 animate-pulse" />
+                    </div>
+                    <div>
+                      <div className="text-base font-bold text-rose-500">Signal Intercepted</div>
+                      <div className="text-sm text-rose-300">Outside perimeter</div>
+                    </div>
                   </div>
                 </div>
 
-                {/* Outside Perimeter Eavesdropper */}
-                <div className="absolute bottom-2 right-2 flex items-center gap-2 rounded-lg bg-slate-900/90 px-2.5 py-1 border border-slate-700 text-xs">
-                  <User className={`h-3.5 w-3.5 ${mode === "wifi" ? "text-rose-400" : "text-slate-500"}`} />
-                  <span className={mode === "wifi" ? "text-rose-400 font-semibold" : "text-slate-500"}>
-                    {mode === "wifi" ? "⚠️ Unauthorized Interception!" : "🚫 Signal Blocked by Wall"}
-                  </span>
+                {/* Mode: LiFi */}
+                <div className={`absolute inset-0 flex items-center justify-center transition-all duration-700 ${mode === "lifi" ? "opacity-100 scale-100" : "opacity-0 scale-90 pointer-events-none"}`}>
+                  {/* Confined Light Cone overlay */}
+                  <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[120%] h-[120%] bg-gradient-to-b from-cyan-300/30 via-cyan-400/10 to-transparent blur-md" 
+                       style={{ clipPath: 'polygon(35% 0%, 65% 0%, 90% 100%, 10% 100%)' }} />
+                  
+                  {/* Glowing Data Particles */}
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                     <div className="w-2/3 h-2/3 bg-cyan-400/20 blur-[80px] rounded-full animate-pulse" style={{ animationDuration: '4s' }} />
+                  </div>
+
+                  {/* Secure Status Inside */}
+                  <div className="absolute bottom-6 right-6 sm:bottom-10 sm:right-10 flex items-center gap-4 rounded-2xl bg-slate-900/95 p-4 border border-cyan-500/50 shadow-[0_0_40px_rgba(6,182,212,0.4)] transition-transform hover:scale-105 cursor-default">
+                    <div className="h-12 w-12 rounded-full bg-cyan-500/20 flex items-center justify-center shrink-0 relative">
+                      <div className="absolute inset-0 rounded-full border border-cyan-400/50 animate-[spin_4s_linear_infinite]" />
+                      <Lock className="h-6 w-6 text-cyan-400" />
+                    </div>
+                    <div>
+                      <div className="text-base font-bold text-cyan-400">100% Room Confined</div>
+                      <div className="text-sm text-cyan-200">Zero physical leakage</div>
+                    </div>
+                  </div>
                 </div>
+
+                {/* Overlay Scanning Line for cool factor */}
+                <div className="absolute top-0 left-0 w-full h-[2px] bg-white/20 blur-[1px] animate-[slideDown_8s_linear_infinite]" />
+                
+                <style>{`
+                  @keyframes slideDown {
+                    0% { transform: translateY(-100%); opacity: 0; }
+                    10% { opacity: 1; }
+                    90% { opacity: 1; }
+                    100% { transform: translateY(800px); opacity: 0; }
+                  }
+                `}</style>
               </div>
             </div>
           </div>

@@ -19,7 +19,7 @@ const SUPPORTED_GAMES = [
     id: 2,
     title: "Call of Duty: Warzone",
     description: "In battle royale, milliseconds matter. LiFi ensures your hit registration is immediate with zero ping spikes.",
-    image: "https://images.unsplash.com/photo-1605901309584-818e25960b8f?q=80&w=800&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=800&auto=format&fit=crop",
   },
   {
     id: 3,
@@ -32,6 +32,18 @@ const SUPPORTED_GAMES = [
     title: "Valorant",
     description: "Get the ultimate competitive edge. Uninterrupted optical wireless means no more dropping packets mid-firefight.",
     image: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    id: 5,
+    title: "Battlefield 6",
+    description: "LiFi powers modern multiplayer gaming with near-zero latency and instant massive-map downloads, guaranteeing seamless connectivity across expansive combat zones.",
+    image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    id: 6,
+    title: "Deadlock",
+    description: "LiFi unleashes light-speed precision, delivering near-zero latency, ultra-low ping, and instantaneous reaction speeds for decisive combat dominance.",
+    image: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=800&auto=format&fit=crop",
   },
 ];
 

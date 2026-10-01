@@ -73,19 +73,13 @@ function AcademyHero() {
               style={{ animationDelay: "0.3s" }}
             >
               <a
-                href="https://lifilumen.com/academy"
+                href="https://lifilumen.com/Academy"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-white shadow-soft transition-all duration-300 hover:bg-primary/90 hover:shadow-glow hover:-translate-y-0.5"
               >
                 Enroll Now
                 <ExternalLink className="h-4 w-4" />
-              </a>
-              <a
-                href="#courses"
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-6 py-3.5 text-sm font-semibold text-foreground shadow-sm transition-all hover:bg-secondary hover:border-primary/30"
-              >
-                View Courses
               </a>
             </div>
           </div>
@@ -236,7 +230,7 @@ function CourseHighlights() {
                 <span className="flex items-center gap-1 text-slate-500">
                   <BookOpen className="h-4 w-4" /> {course.modules} Modules
                 </span>
-                <a href="https://lifilumen.com/academy" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 flex items-center gap-1">
+                <a href="https://lifilumen.com/Academy" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 flex items-center gap-1">
                   View Syllabus <ArrowRight className="h-4 w-4" />
                 </a>
               </div>
@@ -268,7 +262,7 @@ function CTASection() {
         </p>
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href="https://lifilumen.com/academy"
+            href="https://lifilumen.com/Academy"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full bg-cyan-500 px-8 py-4 text-sm font-bold text-slate-950 shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-transform hover:scale-105"
