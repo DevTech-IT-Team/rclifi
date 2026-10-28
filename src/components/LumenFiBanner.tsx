@@ -18,13 +18,13 @@ export function LumenFiBanner() {
               />
               <div className="min-w-0 space-y-2">
                 <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-cyan-300">
-                  Shop LumenFi · Authorized reseller
+                  Lumen LiFi Systems · Official Technology Partner
                 </p>
                 <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl">
                   Order the LiFi Lamp on LumenLiFi
                 </h2>
                 <p className="max-w-xl text-sm leading-relaxed text-slate-300">
-                  RC LiFi showcases the product. Purchases and pre-orders are completed on the official LumenFi store.
+                  RC LiFi delivers official Lumen LiFi systems. Customize finishes, explore technical specs, and complete pre-orders directly on the official store.
                 </p>
               </div>
             </div>

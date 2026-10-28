@@ -1,10 +1,11 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import {
   ShieldCheck,
   Zap,
   Lightbulb,
   ArrowRight,
+  ExternalLink,
   Mail,
   Phone,
   MapPin,
@@ -42,7 +43,7 @@ import { RcLiFiLogo } from "../components/RcLiFiLogo";
 
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
-import { LumenFiBanner } from "../components/LumenFiBanner";
+import { LumenFiShowcase } from "../components/LumenFiShowcase";
 import { LUMEN } from "../lib/lumen";
 
 export const Route = createFileRoute("/")({
@@ -55,13 +56,10 @@ function Landing() {
       <Header />
       <main>
         <Hero />
-        <LumenFiBanner />
         <MissionStatement />
+        <LumenFiShowcase />
         <NewContentSections />
         <SecurityVisualization />
-        <InteractiveDemos />
-        <KitSection />
-        {/* <SetupSection /> */}
         <OilAndGasSection />
         <MeetTheFounder />
       </main>
@@ -98,77 +96,47 @@ function Hero() {
           LIGHT SPEED AHEAD
         </h3>
 
-        {/* <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white/80 px-4 py-1.5 text-xs font-semibold text-primary backdrop-blur shadow-sm animate-fade-up" style={{ animationDelay: "0.3s" }}>
-          <Sparkles className="h-3.5 w-3.5 text-cyan-600" />
-          Light Fidelity (LiFi) — Next-Gen Optical Wireless
-        </span> */}
-
         <h1
           className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl leading-[1.1] animate-fade-up max-w-4xl"
-          style={{ animationDelay: "0.4s" }}
+          style={{ animationDelay: "0.3s" }}
         >
           Unbreakable Optical Connectivity at{" "}
           <span className="bg-gradient-to-r from-primary via-cyan-600 to-blue-700 bg-clip-text text-transparent">
-            Fast Throughput
+            224Gb/s Throughput
           </span>
         </h1>
 
         <p
-          className="mt-6 text-lg leading-relaxed text-muted-foreground max-w-2xl animate-fade-up mx-auto"
-          style={{ animationDelay: "0.5s" }}
+          className="mt-6 text-lg sm:text-xl leading-relaxed text-muted-foreground max-w-3xl animate-fade-up mx-auto font-normal"
+          style={{ animationDelay: "0.4s" }}
         >
-          RC LiFi replaces vulnerable radio frequency (RF) waves with secure, high-speed optical wireless communication: LiFi (Light Fidelity)—confining your data to the room, eliminating interference, and guaranteeing reliability for mission-critical operations.
+          RC LiFi replaces vulnerable radio frequency (RF) waves with secure, high-speed optical wireless communication: LiFi (Light Fidelity)—unifying everyday <strong className="text-foreground font-semibold">Wi-Fi 7</strong> with light-speed <strong className="text-foreground font-semibold">Li-Fi</strong>, confining your data to the room, eliminating interference, and guaranteeing reliability for homes, workspaces, and mission-critical operations.
         </p>
 
         <div
           className="mt-8 flex flex-wrap items-center justify-center gap-4 animate-fade-up"
-          style={{ animationDelay: "0.6s" }}
+          style={{ animationDelay: "0.5s" }}
         >
           <a
-            href="#demos"
+            href="#lifi-lamp"
             className="group inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-white shadow-soft transition-all duration-300 hover:bg-primary/90 hover:shadow-glow hover:-translate-y-0.5"
           >
-            Explore Live Demos
+            Explore LiFi Lamp
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </a>
-          <a
-            href="#kit"
-            className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-6 py-3.5 text-sm font-semibold text-foreground shadow-sm transition-all hover:bg-secondary hover:border-primary/30"
-          >
-            View LumenFi Kit & Setup
           </a>
           <a
             href={LUMEN.product}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-cyan-400/40 bg-cyan-50 px-6 py-3.5 text-sm font-semibold text-primary shadow-sm transition-all hover:bg-cyan-100"
+            className="inline-flex items-center gap-2 rounded-full border border-cyan-500/35 bg-white px-6 py-3.5 text-sm font-semibold text-slate-900 shadow-sm transition-all hover:bg-cyan-50 hover:border-cyan-500/60"
           >
             Pre-Order on LumenLiFi
-            <ArrowRight className="h-4 w-4" />
+            <ExternalLink className="h-4 w-4 text-cyan-600" />
           </a>
         </div>
 
-        {/* Stat Row */}
-        <div
-          className="mt-12 grid w-full max-w-3xl grid-cols-3 gap-4 border-y border-border/80 py-6 animate-fade-up mx-auto"
-          style={{ animationDelay: "0.7s" }}
-        >
-          <div>
-            <div className="text-2xl sm:text-3xl font-extrabold text-primary">Fast</div>
-            <div className="mt-1 text-xs sm:text-sm font-medium text-muted-foreground">Throughput Speed</div>
-          </div>
-          <div>
-            <div className="text-2xl sm:text-3xl font-extrabold text-cyan-600">200–800 THz</div>
-            <div className="mt-1 text-xs sm:text-sm font-medium text-muted-foreground">Optical Spectrum</div>
-          </div>
-          <div>
-            <div className="text-2xl sm:text-3xl font-extrabold text-blue-700">0 ms RF</div>
-            <div className="mt-1 text-xs sm:text-sm font-medium text-muted-foreground">Leakage Hazard</div>
-          </div>
-        </div>
-
         {/* Hero Visual Card */}
-        <div className="mt-16 w-full max-w-5xl relative animate-fade-up" style={{ animationDelay: "0.8s" }}>
+        <div className="mt-16 w-full max-w-5xl relative animate-fade-up" style={{ animationDelay: "0.65s" }}>
           <div className="relative overflow-hidden rounded-3xl border border-border/80 bg-white p-4 shadow-card">
             <div className="relative aspect-[21/9] rounded-2xl overflow-hidden bg-slate-900 group">
               <img
@@ -185,7 +153,7 @@ function Hero() {
                     <div className="h-3 w-3 rounded-full bg-cyan-400 animate-pulse" />
                     <span className="text-xs font-semibold uppercase tracking-wider text-cyan-300">LiFi Active Optical Link</span>
                   </div>
-                  <span className="text-xs font-bold bg-cyan-500/30 px-2 py-0.5 rounded text-cyan-200">Fast</span>
+                  <span className="text-xs font-bold bg-cyan-500/30 px-2 py-0.5 rounded text-cyan-200">Optical Link Active</span>
                 </div>
                 <p className="mt-1 text-xs text-white/80">Data confined 100% inside physical light cone.</p>
               </div>
@@ -202,127 +170,161 @@ function Hero() {
 
 function MissionStatement() {
   return (
-    <section id="mission" className="relative bg-white py-20 sm:py-24 border-y border-border/60">
-      <div className="mx-auto max-w-5xl px-6 text-center">
-        <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary">
-          <Sun className="h-3.5 w-3.5" />
+    <section className="relative overflow-hidden bg-slate-950 py-20 sm:py-28 text-white border-y border-slate-800/80">
+      {/* Optical Light Beam & Ambient Glow */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        {/* Top down optical beam cone */}
+        <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-gradient-to-b from-cyan-400/25 via-blue-600/10 to-transparent blur-3xl opacity-80" />
+        <div className="absolute -left-20 top-1/2 h-72 w-72 rounded-full bg-cyan-500/10 blur-3xl" />
+        <div className="absolute -right-20 top-1/2 h-72 w-72 rounded-full bg-blue-600/10 blur-3xl" />
+      </div>
+
+      <div className="relative mx-auto max-w-5xl px-6 text-center">
+        {/* Badge */}
+        <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-950/70 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-cyan-300 backdrop-blur-md shadow-[0_0_20px_rgba(6,182,212,0.15)] mb-8">
+          <Sun className="h-3.5 w-3.5 text-cyan-400 animate-pulse" />
           Our Mission Statement
         </div>
 
-        <div className="relative mt-8 rounded-3xl border border-primary/20 bg-gradient-to-b from-blue-50/60 via-slate-50 to-white p-8 sm:p-14 shadow-card">
-          <div className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-cyan-400/20 blur-3xl" />
-          <div className="pointer-events-none absolute -left-12 -bottom-12 h-40 w-40 rounded-full bg-blue-500/10 blur-3xl" />
+        {/* Primary Statement */}
+        <blockquote className="relative">
+          <p className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight leading-snug sm:leading-tight text-white max-w-4xl mx-auto">
+            "To illuminate the future of secure wireless connectivity by{" "}
+            <span className="bg-gradient-to-r from-cyan-300 via-cyan-400 to-blue-400 bg-clip-text text-transparent">
+              harnessing the power of light
+            </span>
+            ."
+          </p>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-snug text-foreground">
-            "To illuminate the future of secure wireless connectivity by harnessing the power of light. We empower homes, small businesses, and critical industries to achieve interference-free communication, uncompromised data privacy, and high-throughput performance through advanced LiFi solutions that thrive where radio frequencies fail."
-          </h2>
+          <p className="mt-8 text-base sm:text-lg lg:text-xl text-slate-300 font-normal leading-relaxed max-w-3xl mx-auto">
+            We empower homes, small businesses, and critical industries to achieve{" "}
+            <strong className="text-white font-semibold">interference-free communication</strong>,{" "}
+            <strong className="text-white font-semibold">uncompromised data privacy</strong>, and{" "}
+            <strong className="text-white font-semibold">high-throughput performance</strong> through advanced LiFi solutions that thrive where radio frequencies fail.
+          </p>
+        </blockquote>
 
-          <div className="mt-8 flex justify-center items-center gap-3 text-sm font-semibold text-primary">
-            <span className="h-2 w-2 rounded-full bg-cyan-500" />
-            RC LiFi Leadership Commitment
-            <span className="h-2 w-2 rounded-full bg-cyan-500" />
-          </div>
+        {/* Commitment Badge */}
+        <div className="mt-10 pt-8 border-t border-slate-800/80 inline-flex items-center gap-3 text-xs font-semibold tracking-wider uppercase text-cyan-400">
+          <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_#06b6d4]" />
+          <span>RC LiFi Leadership Commitment</span>
+          <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_#06b6d4]" />
         </div>
       </div>
     </section>
   );
 }
 
+
+
 /* ---------------- New Content Sections (3 Pillars) ---------------- */
 
-function NewContentSections() {
-  const sections = [
-    {
-      id: "speed",
-      icon: Zap,
-      badge: "Performance & Spectrum",
-      title: "Unmatched Speed and Bandwidth",
-      fullText:
-        "Operating at frequencies around 200,000 GHz (200 THz) and extending up to 800,000 GHz, LiFi accesses a spectrum 10,000 times wider than the entire radio frequency range used by Wi-Fi. This vast bandwidth enables data transmission speeds exceeding 100 Gb/s in laboratory settings, offering a solution to the global 'spectrum crunch' and supporting ultra-high-density data environments without interference. Offering peak speeds of Fast.",
-      items: [
-        { title: "Spectrum Frequency Range", val: "200,000 GHz (200 THz) – 800,000 GHz" },
-        { title: "10,000x Wider Spectrum", val: "Solves global RF spectrum crunch with zero interference" },
-        { title: "Peak Speeds of Fast", val: "Fast Throughput for ultra-high-density data environments" },
-        { title: "Next-Gen 6G Compatible", val: "Native alignment with 6G and smart ecosystem architecture" },
-      ],
-      color: "from-blue-600 to-cyan-600",
-    },
-    {
-      id: "security",
-      icon: ShieldCheck,
-      badge: "Privacy & Physical Containment",
-      title: "Enhanced Security and Reliability",
-      fullText:
-        "A defining feature of LiFi is its inherent physical security. Because light cannot penetrate opaque walls, data transmission is strictly confined to the illuminated area, eliminating the risk of external interception common with radio waves. This makes LiFi ideal for secure environments such as government facilities, hospitals, and financial institutions. Furthermore, LiFi is immune to electromagnetic interference, ensuring stable performance in sensitive areas like aircraft cabins and industrial plants where radio signals are restricted or hazardous.",
-      items: [
-        { title: "Confined Within Lit Room", val: "Light cannot penetrate opaque walls, doors, or partitions" },
-        { title: "Zero RF Leakage", val: "Eliminates risk of external packet interception" },
-        { title: "Electromagnetic Immunity", val: "Immune to EMI & signal jamming in sensitive environments" },
-        { title: "Critical Industry Ready", val: "Ideal for government, healthcare, finance, defense, & industrial plants" },
-      ],
-      color: "from-primary to-blue-800",
-    },
-    {
-      id: "integration",
-      icon: Lightbulb,
-      badge: "Infrastructure & Efficiency",
-      title: "Seamless Integration and Efficiency",
-      fullText:
-        "LiFi technology transforms existing lighting fixtures into wireless access points, requiring minimal new infrastructure. By modulating light intensity at speeds imperceptible to the human eye, LED bulbs simultaneously provide illumination and high-speed internet access. This dual functionality results in significant energy savings and lower deployment costs compared to traditional radio-frequency systems. While LiFi requires a line-of-sight connection, its ability to operate in dense environments without signal degradation positions it as a powerful complement to Wi-Fi in the evolution toward 6G and smart city ecosystems.",
-      items: [
-        { title: "LED Lighting Reuse", val: "Transforms existing LED light fixtures into high-speed optical access points" },
-        { title: "Dual Functionality", val: "Simultaneous room illumination and high-speed data transmission" },
-        { title: "Energy & Cost Savings", val: "Lower deployment and cabling costs compared to RF systems" },
-        { title: "Dense Environment Power", val: "Zero signal degradation in crowded smart city & enterprise spaces" },
-      ],
-      color: "from-cyan-600 to-blue-600",
-    },
-  ];
+const ADVANTAGES = [
+  {
+    id: "bandwidth",
+    icon: Zap,
+    badge: "10,000× Spectrum",
+    badgeColor: "bg-cyan-50 text-cyan-800 border-cyan-200",
+    accentGradient: "from-cyan-500 to-blue-600",
+    title: "Massive Optical Bandwidth",
+    tagline: "Unclogging saturated radio channels with pure light.",
+    summary:
+      "Operating across 200–800 Terahertz of optical spectrum, LiFi bypasses crowded 2.4 / 5 / 6 GHz radio bands to eliminate packet congestion and electromagnetic noise.",
+    highlights: [
+      { title: "Zero RF Congestion", desc: "Immune to microwaves, baby monitors, and neighbor Wi-Fi noise." },
+      { title: "Multi-User Density", desc: "Maintains high throughput without bandwidth collapse during peak hours." },
+      { title: "Deterministic Response", desc: "Instantaneous optical turnaround for gaming, 4K/8K, and VR." },
+    ],
+  },
+  {
+    id: "security",
+    icon: ShieldCheck,
+    badge: "100% Room Confined",
+    badgeColor: "bg-blue-50 text-blue-800 border-blue-200",
+    accentGradient: "from-primary to-blue-800",
+    title: "Physical-Layer Data Security",
+    tagline: "Light cannot penetrate solid walls, doors, or glass.",
+    summary:
+      "Unlike radio signals that radiate through drywalls into public corridors and streets, light stays inside your room, making wireless interception physically impossible.",
+    highlights: [
+      { title: "Zero Perimeter Bleed", desc: "Network traffic stays strictly within opaque room boundaries." },
+      { title: "Drive-By Sniffing Immune", desc: "Eliminates remote RF packet capture, eavesdropping, and wardriving." },
+      { title: "Enterprise & SCIF Ready", desc: "Hardware-enforced isolation for legal, medical, and executive rooms." },
+    ],
+  },
+  {
+    id: "infrastructure",
+    icon: Lightbulb,
+    badge: "Lighting & Internet in One",
+    badgeColor: "bg-emerald-50 text-emerald-800 border-emerald-200",
+    accentGradient: "from-emerald-500 to-cyan-600",
+    title: "Dual-Role Luminaire Efficiency",
+    tagline: "Turn functional room lighting into your wireless hub.",
+    summary:
+      "By modulating LED light intensity at imperceptible speeds, a single lamp illuminates your room while transmitting gigabit wireless data, reducing cabling and equipment overhead.",
+    highlights: [
+      { title: "Energy-Efficient LED", desc: "High-efficiency ambient illumination and high-speed data from one unit." },
+      { title: "Reduced Cable Clutter", desc: "Eliminates messy Ethernet cables across living rooms and workspaces." },
+      { title: "Wi-Fi 7 Harmony", desc: "Complements broad Wi-Fi 7 coverage for a seamless dual network." },
+    ],
+  },
+];
 
+function NewContentSections() {
   return (
-    <section id="features" className="relative bg-slate-50 py-24 sm:py-32">
+    <section id="features" className="relative bg-slate-50/70 py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-primary">Core Technological Advantages</p>
-          <h2 className="mt-3 text-4xl font-extrabold sm:text-5xl text-foreground">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-4 py-1 text-xs font-bold uppercase tracking-widest text-primary">
+            <Sparkles className="h-3.5 w-3.5 text-cyan-600" />
+            Core Technological Advantages
+          </span>
+          <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl lg:text-5xl text-foreground tracking-tight">
             Engineered Where Radio Frequencies Fail
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
-            Explore how RC LiFi redefines bandwidth, privacy, and efficiency for modern enterprises.
+          <p className="mt-4 text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
+            Explore how RC LiFi redefines bandwidth, privacy, and infrastructure efficiency for modern living and enterprise spaces.
           </p>
         </div>
 
-        <div className="mt-16 grid gap-8 lg:grid-cols-3">
-          {sections.map((sec) => {
-            const Icon = sec.icon;
+        <div className="mt-16 grid gap-8 lg:grid-cols-3 items-stretch">
+          {ADVANTAGES.map((adv) => {
+            const Icon = adv.icon;
             return (
               <div
-                key={sec.title}
-                className="group relative flex flex-col justify-between rounded-3xl border border-border bg-white p-8 shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-primary/40"
+                key={adv.id}
+                className="group relative flex flex-col justify-between rounded-3xl border border-border/80 bg-white p-7 sm:p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-primary/30"
               >
                 <div>
-                  <div className="mb-6 flex items-center justify-between">
-                    <div className={`grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br ${sec.color} text-white shadow-soft`}>
+                  <div className="flex items-center justify-between gap-4 mb-6">
+                    <div className={`grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-gradient-to-br ${adv.accentGradient} text-white shadow-md`}>
                       <Icon className="h-6 w-6" />
                     </div>
-                    <span className="text-xs font-bold uppercase tracking-wider text-primary bg-blue-50 px-3 py-1 rounded-full">
-                      {sec.badge}
+                    <span className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-bold uppercase tracking-wider ${adv.badgeColor}`}>
+                      {adv.badge}
                     </span>
                   </div>
 
-                  <h3 className="text-2xl font-bold text-foreground">{sec.title}</h3>
-                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed font-normal bg-slate-50/80 p-4 rounded-2xl border border-slate-100">
-                    "{sec.fullText}"
+                  <h3 className="text-xl sm:text-2xl font-bold text-foreground tracking-tight group-hover:text-primary transition-colors">
+                    {adv.title}
+                  </h3>
+                  <p className="mt-1.5 text-xs font-semibold text-cyan-700">
+                    {adv.tagline}
+                  </p>
+                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                    {adv.summary}
                   </p>
                 </div>
 
-                <div className="mt-6 border-t border-border pt-6 space-y-3">
-                  {sec.items.map((item) => (
-                    <div key={item.title} className="flex items-start gap-3">
-                      <CheckCircle2 className="h-5 w-5 shrink-0 text-cyan-600 mt-0.5" />
+                <div className="mt-8 border-t border-border/70 pt-6 space-y-3.5">
+                  {adv.highlights.map((h) => (
+                    <div key={h.title} className="flex items-start gap-3">
+                      <div className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-cyan-100 text-cyan-700">
+                        <Check className="h-3 w-3 stroke-[3]" />
+                      </div>
                       <div>
-                        <div className="text-xs font-bold text-foreground">{item.title}</div>
-                        <div className="text-xs text-muted-foreground">{item.val}</div>
+                        <div className="text-xs font-bold text-foreground">{h.title}</div>
+                        <div className="text-xs text-muted-foreground leading-relaxed mt-0.5">{h.desc}</div>
                       </div>
                     </div>
                   ))}
@@ -342,7 +344,7 @@ function SecurityVisualization() {
   const [mode, setMode] = useState<"wifi" | "lifi">("lifi");
 
   return (
-    <section className="relative bg-white py-24 sm:py-32 border-y border-border/60 overflow-hidden">
+    <section id="security" className="relative bg-white py-20 sm:py-28 border-y border-border/60 overflow-hidden scroll-mt-28">
       {/* Background Decor */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
         <div className={`absolute top-1/4 -right-1/4 w-[800px] h-[800px] rounded-full blur-[120px] transition-colors duration-1000 ${mode === 'lifi' ? 'bg-cyan-500/5' : 'bg-rose-500/5'}`} />
@@ -356,7 +358,7 @@ function SecurityVisualization() {
               Physical Security Demo
             </span>
             <h2 className="mt-6 text-3xl font-extrabold sm:text-4xl lg:text-5xl text-foreground leading-[1.1]">
-              Interactive Room Boundary <br/> Security Visualization
+              Interactive Room Boundary <br /> Security Visualization
             </h2>
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
               Traditional Wi-Fi radiates through drywalls, glass, and doors, allowing eavesdroppers outside the perimeter to intercept packet traces. RC LiFi keeps 100% of data enclosed inside lit optical cones.
@@ -365,11 +367,10 @@ function SecurityVisualization() {
             <div className="mt-10 flex flex-col sm:flex-row items-stretch gap-3 rounded-3xl bg-slate-100/80 p-2 border border-border shadow-inner backdrop-blur-sm">
               <button
                 onClick={() => setMode("wifi")}
-                className={`relative flex-1 flex items-center justify-center gap-2 rounded-2xl py-4 text-sm font-bold transition-all duration-300 ${
-                  mode === "wifi"
-                    ? "bg-white text-rose-600 shadow-md border border-rose-100"
-                    : "text-muted-foreground hover:text-foreground hover:bg-slate-200/50"
-                }`}
+                className={`relative flex-1 flex items-center justify-center gap-2 rounded-2xl py-4 text-sm font-bold transition-all duration-300 ${mode === "wifi"
+                  ? "bg-white text-rose-600 shadow-md border border-rose-100"
+                  : "text-muted-foreground hover:text-foreground hover:bg-slate-200/50"
+                  }`}
               >
                 {mode === "wifi" && <span className="absolute left-4 flex h-2.5 w-2.5"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span><span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-rose-500"></span></span>}
                 <Radio className="h-4 w-4" />
@@ -377,11 +378,10 @@ function SecurityVisualization() {
               </button>
               <button
                 onClick={() => setMode("lifi")}
-                className={`relative flex-1 flex items-center justify-center gap-2 rounded-2xl py-4 text-sm font-bold transition-all duration-300 ${
-                  mode === "lifi"
-                    ? "bg-primary text-white shadow-lg shadow-primary/30"
-                    : "text-muted-foreground hover:text-foreground hover:bg-slate-200/50"
-                }`}
+                className={`relative flex-1 flex items-center justify-center gap-2 rounded-2xl py-4 text-sm font-bold transition-all duration-300 ${mode === "lifi"
+                  ? "bg-primary text-white shadow-lg shadow-primary/30"
+                  : "text-muted-foreground hover:text-foreground hover:bg-slate-200/50"
+                  }`}
               >
                 {mode === "lifi" && <span className="absolute left-4 flex h-2.5 w-2.5"><span className="animate-pulse absolute inline-flex h-full w-full rounded-full bg-cyan-300 opacity-75"></span><span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-400"></span></span>}
                 <ShieldCheck className="h-4 w-4" />
@@ -426,7 +426,7 @@ function SecurityVisualization() {
                     <div className="absolute w-[100%] aspect-square rounded-full border-[6px] border-rose-500/40 animate-ping" style={{ animationDuration: '3s', animationDelay: '1s' }} />
                     <div className="absolute w-[50%] aspect-square rounded-full border-[4px] border-rose-500/50 animate-ping" style={{ animationDuration: '3s', animationDelay: '2s' }} />
                   </div>
-                  
+
                   {/* Hacker Alert Outside */}
                   <div className="absolute bottom-6 right-6 sm:bottom-10 sm:right-10 flex items-center gap-4 rounded-2xl bg-slate-900/95 p-4 border border-rose-500/50 shadow-[0_0_40px_rgba(244,63,94,0.4)] animate-bounce" style={{ animationDuration: '2s' }}>
                     <div className="h-12 w-12 rounded-full bg-rose-500/20 flex items-center justify-center shrink-0">
@@ -442,12 +442,12 @@ function SecurityVisualization() {
                 {/* Mode: LiFi */}
                 <div className={`absolute inset-0 flex items-center justify-center transition-all duration-700 ${mode === "lifi" ? "opacity-100 scale-100" : "opacity-0 scale-90 pointer-events-none"}`}>
                   {/* Confined Light Cone overlay */}
-                  <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[120%] h-[120%] bg-gradient-to-b from-cyan-300/30 via-cyan-400/10 to-transparent blur-md" 
-                       style={{ clipPath: 'polygon(35% 0%, 65% 0%, 90% 100%, 10% 100%)' }} />
-                  
+                  <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[120%] h-[120%] bg-gradient-to-b from-cyan-300/30 via-cyan-400/10 to-transparent blur-md"
+                    style={{ clipPath: 'polygon(35% 0%, 65% 0%, 90% 100%, 10% 100%)' }} />
+
                   {/* Glowing Data Particles */}
                   <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                     <div className="w-2/3 h-2/3 bg-cyan-400/20 blur-[80px] rounded-full animate-pulse" style={{ animationDuration: '4s' }} />
+                    <div className="w-2/3 h-2/3 bg-cyan-400/20 blur-[80px] rounded-full animate-pulse" style={{ animationDuration: '4s' }} />
                   </div>
 
                   {/* Secure Status Inside */}
@@ -465,7 +465,7 @@ function SecurityVisualization() {
 
                 {/* Overlay Scanning Line for cool factor */}
                 <div className="absolute top-0 left-0 w-full h-[2px] bg-white/20 blur-[1px] animate-[slideDown_8s_linear_infinite]" />
-                
+
                 <style>{`
                   @keyframes slideDown {
                     0% { transform: translateY(-100%); opacity: 0; }
@@ -898,254 +898,7 @@ function InteractiveDemos() {
   );
 }
 
-/* ---------------- Kit Section ("What's Included in the Kit") ---------------- */
 
-function KitSection() {
-  const kitItems = [
-    {
-      icon: Sun,
-      title: "Optical Transceiver Access Point",
-      desc: "High-power ceiling unit converting Ethernet data streams into modulated invisible infrared & visible light signals.",
-    },
-    {
-      icon: Cpu,
-      title: "2x USB LiFi Receiver Dongles",
-      desc: "Includes 2 compact optical dongles. Plugs directly into any device (computers, phones, gaming systems, TVs) via USB-C or standard USB-A adapters.",
-    },
-    {
-      icon: Zap,
-      title: "POE Injector & High-Grade Cabling",
-      desc: "Power-over-Ethernet injector and shielded Category 6A cabling for seamless power and gigabit backhaul feed.",
-    },
-    {
-      icon: Settings,
-      title: "Optical Alignment Bracket & Hardware",
-      desc: "Precision ceiling and wall mounting brackets with fine-tune optical alignment knobs for optimal beam targeting.",
-    },
-    {
-      icon: ShieldCheck,
-      title: "Management Suite & User Manual",
-      desc: "Enterprise controller software license, alignment diagnostic software, and step-by-step setup documentation.",
-    },
-  ];
-
-  return (
-    <section id="kit" className="relative bg-white py-24 sm:py-32 border-y border-border/60">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="mx-auto max-w-3xl text-center">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-primary">
-            <Package className="h-3.5 w-3.5" />
-            Hardware Bundle
-          </span>
-          <h2 className="mt-3 text-4xl font-extrabold sm:text-5xl text-foreground">
-            What's Included in the LumenFi Kit
-          </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
-            Everything required to deploy your first high-speed optical LiFi cell right out of the box, including 2 connection dongles for your devices.
-          </p>
-          <a
-            href={LUMEN.product}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-white shadow-soft transition-all hover:bg-primary/90 hover:shadow-glow"
-          >
-            Pre-Order this kit on LumenLiFi
-            <ArrowRight className="h-4 w-4" />
-          </a>
-        </div>
-
-        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {kitItems.map((item, idx) => {
-            const Icon = item.icon;
-            return (
-              <div
-                key={item.title}
-                className="group relative rounded-3xl border border-border bg-slate-50/50 p-8 shadow-card transition-all duration-300 hover:bg-white hover:border-primary/40 hover:-translate-y-1"
-              >
-                <div className="flex items-center justify-between">
-                  <div className="grid h-12 w-12 place-items-center rounded-2xl bg-primary text-white shadow-soft">
-                    <Icon className="h-6 w-6" />
-                  </div>
-                  <span className="text-xs font-mono font-bold text-muted-foreground">ITEM 0{idx + 1}</span>
-                </div>
-                <h3 className="mt-6 text-xl font-bold text-foreground">{item.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ---------------- Setup Section & Compatibility Checker ---------------- */
-
-function SetupSection() {
-  // Dongle Calculator state
-  const [laptops, setLaptops] = useState<number>(1);
-  const [phones, setPhones] = useState<number>(1);
-  const [tvs, setTvs] = useState<number>(0);
-  const [consoles, setConsoles] = useState<number>(0);
-
-  const totalDevices = laptops + phones + tvs + consoles;
-  const donglesIncluded = 2;
-  const extraDonglesNeeded = Math.max(0, totalDevices - donglesIncluded);
-
-  const steps = [
-    {
-      step: "01",
-      title: "Mount Optical Transceiver",
-      desc: "Attach the transceiver bracket to your ceiling light fixture or overhead grid position.",
-    },
-    {
-      step: "02",
-      title: "Connect POE Ethernet Cable",
-      desc: "Plug the Category 6A cable from your network switch or POE injector into the transceiver.",
-    },
-    {
-      step: "03",
-      title: "Plug USB Receiver into Client",
-      desc: "Insert the RC LiFi compact receiver dongle into your desktop or laptop USB-C / USB-A port.",
-    },
-    {
-      step: "04",
-      title: "Instant Light Connection",
-      desc: "Verify optical alignment via status indicator LEDs and enjoy zero-lag Fast optical internet.",
-    },
-  ];
-
-  return (
-    <section className="relative bg-slate-50 py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="mx-auto max-w-3xl text-center">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-primary">
-            <Wrench className="h-3.5 w-3.5" />
-            Deployment Guide
-          </span>
-          <h2 className="mt-3 text-4xl font-extrabold sm:text-5xl text-foreground">
-            What's Needed for Setup
-          </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
-            Fast 4-step installation with zero specialized tools required.
-          </p>
-        </div>
-
-        {/* 4 Step Walkthrough */}
-        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {steps.map((s) => (
-            <div key={s.step} className="rounded-3xl border border-border bg-white p-6 shadow-card">
-              <div className="text-3xl font-extrabold text-cyan-600">{s.step}</div>
-              <h3 className="mt-3 text-lg font-bold text-foreground">{s.title}</h3>
-              <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{s.desc}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Interactive Dongle Calculator */}
-        <div className="mt-16 rounded-3xl border border-primary/20 bg-white p-8 sm:p-12 shadow-card">
-          <div className="grid gap-8 lg:grid-cols-12 items-center">
-            <div className="lg:col-span-6 space-y-6">
-              <div className="inline-flex items-center gap-1.5 rounded-full bg-cyan-50 px-3 py-1 text-xs font-bold uppercase text-cyan-800">
-                <HelpCircle className="h-3.5 w-3.5" />
-                Interactive Dongle Calculator
-              </div>
-              <h3 className="text-2xl font-bold text-foreground">How many dongles do I need?</h3>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Enter the number of devices you plan to connect <strong>simultaneously</strong> to your LiFi network. Each device requires one dongle.
-              </p>
-
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="text-xs font-bold text-foreground">Laptops / Computers</label>
-                  <input
-                    type="number"
-                    min="0"
-                    value={laptops}
-                    onChange={(e) => setLaptops(parseInt(e.target.value) || 0)}
-                    className="mt-1 w-full rounded-xl border border-border bg-slate-50 p-3 text-sm font-medium text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                  />
-                </div>
-                <div>
-                  <label className="text-xs font-bold text-foreground">Phones / Tablets</label>
-                  <input
-                    type="number"
-                    min="0"
-                    value={phones}
-                    onChange={(e) => setPhones(parseInt(e.target.value) || 0)}
-                    className="mt-1 w-full rounded-xl border border-border bg-slate-50 p-3 text-sm font-medium text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                  />
-                </div>
-                <div>
-                  <label className="text-xs font-bold text-foreground">Smart TVs</label>
-                  <input
-                    type="number"
-                    min="0"
-                    value={tvs}
-                    onChange={(e) => setTvs(parseInt(e.target.value) || 0)}
-                    className="mt-1 w-full rounded-xl border border-border bg-slate-50 p-3 text-sm font-medium text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                  />
-                </div>
-                <div>
-                  <label className="text-xs font-bold text-foreground">Gaming Consoles</label>
-                  <input
-                    type="number"
-                    min="0"
-                    value={consoles}
-                    onChange={(e) => setConsoles(parseInt(e.target.value) || 0)}
-                    className="mt-1 w-full rounded-xl border border-border bg-slate-50 p-3 text-sm font-medium text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Checker Output Box */}
-            <div className="lg:col-span-6">
-              <div className="rounded-2xl border border-cyan-200 bg-cyan-50/50 p-6 sm:p-8">
-                <h4 className="text-base font-bold text-foreground">Required Dongles Summary:</h4>
-
-                <div className="mt-4 space-y-3">
-                  <div className="flex items-center justify-between text-sm font-semibold text-slate-700">
-                    <span>Total Simultaneous Devices:</span>
-                    <span className="text-lg">{totalDevices}</span>
-                  </div>
-                  <div className="flex items-center justify-between text-sm font-semibold text-emerald-700 border-t border-cyan-200 pt-3">
-                    <span>Included in LumenFi Kit:</span>
-                    <span className="text-lg">{donglesIncluded}</span>
-                  </div>
-
-                  {extraDonglesNeeded > 0 ? (
-                    <div className="flex items-center justify-between text-sm font-bold text-amber-700 border-t border-cyan-200 pt-3">
-                      <span>Extra Dongles Needed:</span>
-                      <span className="text-xl">{extraDonglesNeeded}</span>
-                    </div>
-                  ) : (
-                    <div className="flex items-center gap-2 text-sm font-bold text-emerald-700 border-t border-cyan-200 pt-3">
-                      <CheckCircle2 className="h-5 w-5" /> You are fully covered by the included kit!
-                    </div>
-                  )}
-                </div>
-
-                <div className="mt-6 border-t border-cyan-200 pt-4 text-xs text-muted-foreground">
-                  Note: Dongles connect via standard USB-C or USB-A ports. Most modern phones, laptops, and consoles support direct USB data networking.
-                </div>
-                <a
-                  href={LUMEN.product}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-bold text-white transition-all hover:bg-primary/90"
-                >
-                  Order extra dongles on LumenLiFi
-                  <ArrowRight className="h-4 w-4" />
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 /* ---------------- Oil & Gas Section ---------------- */
 
@@ -1183,9 +936,9 @@ function OilAndGasSection() {
               <div className="grid h-12 w-12 place-items-center rounded-2xl bg-amber-500/20 text-amber-400 border border-amber-500/30 mb-6">
                 <ShieldCheck className="h-6 w-6" />
               </div>
-              <h3 className="text-xl font-bold text-white">Safety and Compliance</h3>
+              <h3 className="text-xl font-bold text-white">Intrinsically Safe Compliance</h3>
               <p className="mt-3 text-sm text-slate-300 leading-relaxed font-normal bg-slate-950/60 p-4 rounded-2xl border border-slate-800">
-                "The primary value proposition of LiFi in oil and gas is intrinsically safe technology. Unlike Wi-Fi or cellular signals, light does not create sparks, making it ideal for Zone 0, 1, and 2 hazardous areas where explosive gases may be present."
+                Unlike radio frequency signals, optical light carries zero spark or thermal ignition hazard. RC LiFi provides certified intrinsically safe data transfer engineered for Zone 0, 1, and 2 hazardous extraction and refining environments.
               </p>
             </div>
             <div className="mt-6 border-t border-slate-800 pt-4 text-xs font-semibold text-amber-400 flex items-center gap-2">
@@ -1199,13 +952,13 @@ function OilAndGasSection() {
               <div className="grid h-12 w-12 place-items-center rounded-2xl bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 mb-6">
                 <Activity className="h-6 w-6" />
               </div>
-              <h3 className="text-xl font-bold text-white">Operational Efficiency</h3>
+              <h3 className="text-xl font-bold text-white">Dual Telemetry &amp; Lighting</h3>
               <p className="mt-3 text-slate-300 text-sm leading-relaxed font-normal bg-slate-950/60 p-4 rounded-2xl border border-slate-800">
-                "Highlights the dual benefit of illumination and data transmission. By using existing lighting infrastructure to transmit data, RC LiFi helps clients reduce cabling costs and latency while enabling real-time monitoring of drills, rigs, and refineries."
+                Simultaneously provides explosion-proof illumination and multi-gigabit data telemetry across drilling rigs, booster stations, and refineries—substantially reducing industrial cabling costs and latency.
               </p>
             </div>
             <div className="mt-6 border-t border-slate-800 pt-4 text-xs font-semibold text-cyan-400 flex items-center gap-2">
-              <Check className="h-4 w-4" /> Real-time Telemetry & Reduced Cabling
+              <Check className="h-4 w-4" /> Real-time Telemetry &amp; Reduced Cabling
             </div>
           </div>
 
@@ -1215,9 +968,9 @@ function OilAndGasSection() {
               <div className="grid h-12 w-12 place-items-center rounded-2xl bg-blue-500/20 text-blue-400 border border-blue-500/30 mb-6">
                 <Zap className="h-6 w-6" />
               </div>
-              <h3 className="text-xl font-bold text-white">Technological Superiority</h3>
+              <h3 className="text-xl font-bold text-white">Heavy-Steel RF Immunity</h3>
               <p className="mt-3 text-slate-300 text-sm leading-relaxed font-normal bg-slate-950/60 p-4 rounded-2xl border border-slate-800">
-                "Thrives where traditional radio frequencies cannot, addressing the specific pain point of the industry: the interference and restrictions placed on RF (Radio Frequency) devices in sensitive exploration and production sites."
+                Operates in the optical spectrum immune to electromagnetic interference, electric motor noise, and heavy steel structure attenuation that cripple legacy radio frequency networks.
               </p>
             </div>
             <div className="mt-6 border-t border-slate-800 pt-4 text-xs font-semibold text-blue-400 flex items-center gap-2">
@@ -1287,13 +1040,13 @@ function MeetTheFounder() {
                     <p className="font-semibold text-slate-900 text-base leading-snug">
                       Ready to modernize your field communications with intrinsically safe, high-speed data?
                     </p>
-                    <a
-                      href="#contact"
+                    <Link
+                      to="/contact"
                       className="inline-flex justify-center w-full items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-bold text-white shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-glow hover:bg-primary/90"
                     >
                       Let's Connect
                       <ArrowRight className="h-4 w-4" />
-                    </a>
+                    </Link>
                   </div>
                 </div>
 
