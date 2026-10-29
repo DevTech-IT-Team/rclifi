@@ -12,7 +12,7 @@ Brand name: RC LiFi
 Tagline (suggested, derived from Mission): Light-Based Internet. Zero Interference. Total Security.
 Color scheme: Blue & White with Cyan accents
 Contact email: Robert.white@rclifi.com
-Phone: TBA
+Phone: Toll-Free (877) RCLIFI1 / (877) 725-4341 | Main: 1 (432) 222-7812
 Address: 7 Briercroft Office Park, Lubbock, Texas 79412
 Social media: TBA
 1. Hero Section
@@ -52,7 +52,7 @@ Precise Localization — the directional nature of light enables centimeter-leve
 Scalable Density — each light fixture is an independent access point, supporting thousands of simultaneous connections without bandwidth degradation.
 5. Contact / Footer Section
 Heading: Get in Touch
-Phone: TBA
+Phone: Toll-Free (877) RCLIFI1 / (877) 725-4341 | Main: 1 (432) 222-7812
 Address: 7 Briercroft Office Park, Lubbock, Texas 79412
 Email: Robert.white@rclifi.com
 Social links: TBA (placeholder icons)
@@ -125,7 +125,7 @@ Bullets:
 5. CONTACT / FOOTER SECTION
 - Dark blue background with cyan accents
 - Heading: "Get in Touch"
-- Display: Phone: TBA, Address: 7 Briercroft Office Park, Lubbock, Texas 79412, Email: rclif@tuta.com (as a clickable mailto link)
+- Display: Phone: Toll-Free (877) RCLIFI1 / (877) 725-4341 | Main: 1 (432) 222-7812, Address: 7 Briercroft Office Park, Lubbock, Texas 79412, Email: rclif@tuta.com (as a clickable mailto link)
 - Social media icon row (placeholder links, no URLs yet)
 - Closing line centered at the bottom: "Thank you — RC LiFi"
 - Small copyright line: "© 2026 RC LiFi. All rights reserved."

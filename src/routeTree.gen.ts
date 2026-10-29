@@ -13,7 +13,10 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AcademyRouteImport } from './routes/academy'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as GamerRouteImport } from './routes/gamer'
+import { Route as LegalRouteImport } from './routes/legal'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as StandardsRouteImport } from './routes/standards'
+import { Route as TermsRouteImport } from './routes/terms'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -35,9 +38,24 @@ const GamerRoute = GamerRouteImport.update({
   path: '/gamer',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LegalRoute = LegalRouteImport.update({
+  id: '/legal',
+  path: '/legal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StandardsRoute = StandardsRouteImport.update({
   id: '/standards',
   path: '/standards',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -46,14 +64,20 @@ export interface FileRoutesByFullPath {
   '/academy': typeof AcademyRoute
   '/contact': typeof ContactRoute
   '/gamer': typeof GamerRoute
+  '/legal': typeof LegalRoute
+  '/privacy': typeof PrivacyRoute
   '/standards': typeof StandardsRoute
+  '/terms': typeof TermsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/academy': typeof AcademyRoute
   '/contact': typeof ContactRoute
   '/gamer': typeof GamerRoute
+  '/legal': typeof LegalRoute
+  '/privacy': typeof PrivacyRoute
   '/standards': typeof StandardsRoute
+  '/terms': typeof TermsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -61,14 +85,42 @@ export interface FileRoutesById {
   '/academy': typeof AcademyRoute
   '/contact': typeof ContactRoute
   '/gamer': typeof GamerRoute
+  '/legal': typeof LegalRoute
+  '/privacy': typeof PrivacyRoute
   '/standards': typeof StandardsRoute
+  '/terms': typeof TermsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/academy' | '/contact' | '/gamer' | '/standards'
+  fullPaths:
+    | '/'
+    | '/academy'
+    | '/contact'
+    | '/gamer'
+    | '/legal'
+    | '/privacy'
+    | '/standards'
+    | '/terms'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/academy' | '/contact' | '/gamer' | '/standards'
-  id: '__root__' | '/' | '/academy' | '/contact' | '/gamer' | '/standards'
+  to:
+    | '/'
+    | '/academy'
+    | '/contact'
+    | '/gamer'
+    | '/legal'
+    | '/privacy'
+    | '/standards'
+    | '/terms'
+  id:
+    | '__root__'
+    | '/'
+    | '/academy'
+    | '/contact'
+    | '/gamer'
+    | '/legal'
+    | '/privacy'
+    | '/standards'
+    | '/terms'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -76,7 +128,10 @@ export interface RootRouteChildren {
   AcademyRoute: typeof AcademyRoute
   ContactRoute: typeof ContactRoute
   GamerRoute: typeof GamerRoute
+  LegalRoute: typeof LegalRoute
+  PrivacyRoute: typeof PrivacyRoute
   StandardsRoute: typeof StandardsRoute
+  TermsRoute: typeof TermsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -109,11 +164,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GamerRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/legal': {
+      id: '/legal'
+      path: '/legal'
+      fullPath: '/legal'
+      preLoaderRoute: typeof LegalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/standards': {
       id: '/standards'
       path: '/standards'
       fullPath: '/standards'
       preLoaderRoute: typeof StandardsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -124,7 +200,10 @@ const rootRouteChildren: RootRouteChildren = {
   AcademyRoute: AcademyRoute,
   ContactRoute: ContactRoute,
   GamerRoute: GamerRoute,
+  LegalRoute: LegalRoute,
+  PrivacyRoute: PrivacyRoute,
   StandardsRoute: StandardsRoute,
+  TermsRoute: TermsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -1,4 +1,5 @@
 import { MapPin, Phone, Mail, Linkedin, ExternalLink } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { RcLiFiLogo } from "./RcLiFiLogo";
 import { LUMEN } from "../lib/lumen";
 
@@ -93,17 +94,33 @@ export function Footer() {
                 </div>
               </div>
 
-              {/* Phone */}
+              {/* Toll-Free Phone */}
               <a
-                href="tel:4322227812"
+                href="tel:18777254341"
                 className="flex items-center gap-4 rounded-2xl border border-slate-800 bg-slate-900/60 p-5 backdrop-blur transition-all hover:border-cyan-400/50"
               >
                 <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-primary text-white">
                   <Phone className="h-5 w-5" />
                 </div>
                 <div>
-                  <div className="text-xs font-bold uppercase text-slate-400">Business Phone</div>
-                  <div className="mt-1 text-sm font-semibold text-white">(432) 222-7812</div>
+                  <div className="text-xs font-bold uppercase text-slate-400">Toll-Free Phone</div>
+                  <div className="mt-1 text-sm font-semibold text-white">
+                    (877) RCLIFI1 <span className="text-slate-400 font-normal">/ (877) 725-4341</span>
+                  </div>
+                </div>
+              </a>
+
+              {/* Main Business Phone */}
+              <a
+                href="tel:14322227812"
+                className="flex items-center gap-4 rounded-2xl border border-slate-800 bg-slate-900/60 p-5 backdrop-blur transition-all hover:border-cyan-400/50"
+              >
+                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-primary text-white">
+                  <Phone className="h-5 w-5" />
+                </div>
+                <div>
+                  <div className="text-xs font-bold uppercase text-slate-400">Main Business Phone</div>
+                  <div className="mt-1 text-sm font-semibold text-white">1 (432) 222-7812</div>
                 </div>
               </a>
 
@@ -127,9 +144,9 @@ export function Footer() {
         <div className="mt-16 border-t border-slate-800/80 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
           <div>© {new Date().getFullYear()} RC LiFi. Light Fidelity Wireless Technology. All rights reserved.</div>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-slate-300">Privacy Policy</a>
-            <a href="#" className="hover:text-slate-300">Terms of Service</a>
-            <a href="#" className="hover:text-slate-300">Patent & IP Notices</a>
+            <Link to="/privacy" className="hover:text-slate-300 transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-slate-300 transition-colors">Terms of Service</Link>
+            <Link to="/terms" className="hover:text-slate-300 transition-colors">Patent &amp; IP Notices</Link>
           </div>
         </div>
       </div>

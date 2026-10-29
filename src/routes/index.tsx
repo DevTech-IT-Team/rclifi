@@ -170,45 +170,42 @@ function Hero() {
 
 function MissionStatement() {
   return (
-    <section className="relative overflow-hidden bg-slate-950 py-20 sm:py-28 text-white border-y border-slate-800/80">
-      {/* Optical Light Beam & Ambient Glow */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        {/* Top down optical beam cone */}
-        <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-gradient-to-b from-cyan-400/25 via-blue-600/10 to-transparent blur-3xl opacity-80" />
-        <div className="absolute -left-20 top-1/2 h-72 w-72 rounded-full bg-cyan-500/10 blur-3xl" />
-        <div className="absolute -right-20 top-1/2 h-72 w-72 rounded-full bg-blue-600/10 blur-3xl" />
+    <section className="relative bg-slate-950 py-24 sm:py-32 text-white border-y border-slate-800/80">
+      {/* Subtle overhead light glow */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 flex justify-center overflow-hidden"
+      >
+        <div className="h-64 w-[500px] -translate-y-12 bg-cyan-500/10 blur-3xl" />
       </div>
 
-      <div className="relative mx-auto max-w-5xl px-6 text-center">
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-950/70 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-cyan-300 backdrop-blur-md shadow-[0_0_20px_rgba(6,182,212,0.15)] mb-8">
-          <Sun className="h-3.5 w-3.5 text-cyan-400 animate-pulse" />
-          Our Mission Statement
-        </div>
+      <div className="relative mx-auto max-w-3xl px-6 text-center">
+        {/* Simple, understated label */}
+        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-cyan-400">
+          Our Mission
+        </p>
 
-        {/* Primary Statement */}
-        <blockquote className="relative">
-          <p className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight leading-snug sm:leading-tight text-white max-w-4xl mx-auto">
-            "To illuminate the future of secure wireless connectivity by{" "}
-            <span className="bg-gradient-to-r from-cyan-300 via-cyan-400 to-blue-400 bg-clip-text text-transparent">
-              harnessing the power of light
-            </span>
-            ."
-          </p>
+        {/* Headline */}
+        <h2 className="mt-5 text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white leading-snug sm:leading-tight">
+          To illuminate the future of secure wireless connectivity by{" "}
+          <span className="text-cyan-400">harnessing the power of light.</span>
+        </h2>
 
-          <p className="mt-8 text-base sm:text-lg lg:text-xl text-slate-300 font-normal leading-relaxed max-w-3xl mx-auto">
-            We empower homes, small businesses, and critical industries to achieve{" "}
-            <strong className="text-white font-semibold">interference-free communication</strong>,{" "}
-            <strong className="text-white font-semibold">uncompromised data privacy</strong>, and{" "}
-            <strong className="text-white font-semibold">high-throughput performance</strong> through advanced LiFi solutions that thrive where radio frequencies fail.
-          </p>
-        </blockquote>
+        {/* Narrative Paragraph */}
+        <p className="mt-6 text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
+          We empower homes, small businesses, and critical industries to achieve
+          interference-free communication, uncompromised data privacy, and
+          high-throughput performance through advanced LiFi solutions that thrive
+          where radio frequencies fail.
+        </p>
 
-        {/* Commitment Badge */}
-        <div className="mt-10 pt-8 border-t border-slate-800/80 inline-flex items-center gap-3 text-xs font-semibold tracking-wider uppercase text-cyan-400">
-          <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_#06b6d4]" />
-          <span>RC LiFi Leadership Commitment</span>
-          <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_#06b6d4]" />
+        {/* Minimal, elegant sign-off */}
+        <div className="mt-10 flex items-center justify-center gap-3">
+          <span className="h-px w-8 bg-slate-800" />
+          <span className="text-[11px] font-medium tracking-[0.2em] text-slate-400 uppercase">
+            RC LiFi Leadership Commitment
+          </span>
+          <span className="h-px w-8 bg-slate-800" />
         </div>
       </div>
     </section>
