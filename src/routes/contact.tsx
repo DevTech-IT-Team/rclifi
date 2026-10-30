@@ -249,8 +249,10 @@ function ContactPage() {
                 </p>
 
                 <div className="space-y-3.5 border-t border-border/70 pt-5">
+                  {/* Phone */}
                   {/* Toll-Free Phone */}
                   <a
+                    href="tel:4322227812"
                     href="tel:18777254341"
                     className="flex items-center gap-3.5 rounded-2xl border border-border/80 bg-slate-50/70 p-3.5 transition-all hover:border-primary/40 hover:bg-white"
                   >
@@ -259,8 +261,10 @@ function ContactPage() {
                     </div>
                     <div>
                       <div className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+                        Phone
                         Toll-Free Phone
                       </div>
+                      <div className="text-sm font-semibold text-foreground">(432) 222-7812</div>
                       <div className="text-sm font-semibold text-foreground">
                         (877) RCLIFI1 <span className="text-muted-foreground font-normal text-xs">/ (877) 725-4341</span>
                       </div>
