@@ -124,6 +124,12 @@ function RootShell({ children }: { children: ReactNode }) {
       <body>
         {children}
         <Scripts />
+        <script
+          src="https://chatbot-frontend-m876.onrender.com/widget.js"
+          data-chatbot-id="4e502ec2-3029-48dd-a4ce-5d8191136f7c"
+          data-website="https%3A%2F%2Fjfkc.vercel.app%2F"
+          async
+        />
       </body>
     </html>
   );
