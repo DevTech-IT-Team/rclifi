@@ -53,14 +53,10 @@ export function Header() {
         {/* Left / Side-Aligned Brand Anchor */}
         <a href="/#home" className="group flex items-center gap-3.5 shrink-0 transition-transform duration-200 hover:scale-[1.02]">
           <RcLiFiLogo
-            className={`transition-all duration-300 ${scrolled ? "h-11 sm:h-13 lg:h-15" : "h-14 sm:h-16 lg:h-20"
+            className={`transition-all duration-300 ${scrolled ? "h-12 sm:h-14 lg:h-16" : "h-16 sm:h-20 lg:h-24"
               } w-auto`}
             variant="color"
           />
-          {/* <div className="hidden 2xl:flex flex-col border-l border-border/80 pl-3 py-0.5 text-left select-none">
-            <span className="text-[11px] font-bold tracking-wider uppercase text-foreground">RC LiFi</span>
-            <span className="text-[10px] text-muted-foreground font-medium tracking-tight">Optical Wireless</span>
-          </div> */}
         </a>
 
         {/* Desktop Nav */}

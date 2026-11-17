@@ -85,24 +85,24 @@ function Hero() {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-6 text-center flex flex-col items-center">
-        <div className="mb-6 animate-fade-up">
-          <RcLiFiLogo className="h-24 sm:h-32 w-auto mx-auto" variant="color" />
+        <div className="mb-8 animate-fade-up">
+          <RcLiFiLogo className="h-28 sm:h-36 lg:h-44 w-auto mx-auto drop-shadow-md" variant="color" />
         </div>
 
         <h2 className="text-xl sm:text-2xl font-bold tracking-widest text-primary uppercase mb-2 animate-fade-up" style={{ animationDelay: "0.1s" }}>
           THE FUTURE IS BRIGHT
         </h2>
-        <h3 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground uppercase mb-10 animate-fade-up" style={{ animationDelay: "0.2s" }}>
+        <h3 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground uppercase mb-8 animate-fade-up" style={{ animationDelay: "0.2s" }}>
           LIGHT SPEED AHEAD
         </h3>
 
         <h1
-          className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl leading-[1.1] animate-fade-up max-w-4xl"
+          className="text-4xl font-black tracking-tight text-foreground sm:text-5xl lg:text-6xl leading-[1.1] animate-fade-up max-w-5xl uppercase"
           style={{ animationDelay: "0.3s" }}
         >
-          Unbreakable Optical Connectivity at{" "}
+          UNBREAKABLE OPTICAL VELOCITY:{" "}
           <span className="bg-gradient-to-r from-primary via-cyan-600 to-blue-700 bg-clip-text text-transparent">
-            224Gb/s Throughput
+            ZERO LATENCY, TOTAL POWER
           </span>
         </h1>
 
@@ -1032,8 +1032,8 @@ function MeetTheFounder() {
                   </div>
 
                   {/* CTA Block shifted to Left with Logo */}
-                  <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col gap-6">
-                    <RcLiFiLogo className="h-8 w-auto opacity-90" />
+                  <div className="bg-slate-50 p-6 sm:p-7 rounded-2xl border border-slate-100 flex flex-col gap-6">
+                    <RcLiFiLogo className="h-12 sm:h-14 w-auto self-start" />
                     <p className="font-semibold text-slate-900 text-base leading-snug">
                       Ready to modernize your field communications with intrinsically safe, high-speed data?
                     </p>

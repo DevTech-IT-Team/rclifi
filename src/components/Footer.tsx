@@ -42,7 +42,7 @@ export function Footer() {
         <div className="grid gap-16 lg:grid-cols-12">
           {/* Left info column */}
           <div className="lg:col-span-6 space-y-6">
-            <RcLiFiLogo className="h-14 sm:h-16 w-auto" variant="light" />
+            <RcLiFiLogo className="h-16 sm:h-20 w-auto" variant="light" />
 
             <p className="max-w-md text-sm leading-relaxed text-slate-400">
               Bridging light-speed LiFi and next-gen Wi-Fi 7. RC LiFi delivers physical-layer security, zero RF congestion, and uncompromised optical wireless performance for homes, executive workspaces, and critical enterprise environments.
@@ -94,33 +94,19 @@ export function Footer() {
                 </div>
               </div>
 
-              {/* Toll-Free Phone */}
+              {/* Phone */}
               <a
-                href="tel:18777254341"
+                href="tel:+18777254341"
                 className="flex items-center gap-4 rounded-2xl border border-slate-800 bg-slate-900/60 p-5 backdrop-blur transition-all hover:border-cyan-400/50"
               >
                 <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-primary text-white">
                   <Phone className="h-5 w-5" />
                 </div>
                 <div>
-                  <div className="text-xs font-bold uppercase text-slate-400">Toll-Free Phone</div>
+                  <div className="text-xs font-bold uppercase text-slate-400">Phone (Toll-Free)</div>
                   <div className="mt-1 text-sm font-semibold text-white">
-                    (877) RCLIFI1 <span className="text-slate-400 font-normal">/ (877) 725-4341</span>
+                    +1 (877) RCLIFI1 <span className="text-slate-400 font-normal">/ +1 (877) 725-4341</span>
                   </div>
-                </div>
-              </a>
-
-              {/* Main Business Phone */}
-              <a
-                href="tel:14322227812"
-                className="flex items-center gap-4 rounded-2xl border border-slate-800 bg-slate-900/60 p-5 backdrop-blur transition-all hover:border-cyan-400/50"
-              >
-                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-primary text-white">
-                  <Phone className="h-5 w-5" />
-                </div>
-                <div>
-                  <div className="text-xs font-bold uppercase text-slate-400">Main Business Phone</div>
-                  <div className="mt-1 text-sm font-semibold text-white">1 (432) 222-7812</div>
                 </div>
               </a>
 

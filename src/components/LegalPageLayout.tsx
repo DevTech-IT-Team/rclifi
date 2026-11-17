@@ -291,7 +291,7 @@ function PrivacyPolicyContent() {
           </div>
           <div className="flex items-center gap-2">
             <Phone className="h-4 w-4 text-primary shrink-0" />
-            <span>Toll-Free: (877) RCLIFI1 / (877) 725-4341 · Direct: 1 (432) 222-7812</span>
+            <span>Phone (Toll-Free): +1 (877) RCLIFI1 / +1 (877) 725-4341</span>
           </div>
           <div className="flex items-center gap-2">
             <Mail className="h-4 w-4 text-primary shrink-0" />
@@ -428,7 +428,7 @@ function TermsOfServiceContent() {
           </div>
           <div className="flex items-center gap-2">
             <Phone className="h-4 w-4 text-primary shrink-0" />
-            <span>Toll-Free: (877) RCLIFI1 / (877) 725-4341 · Direct: 1 (432) 222-7812</span>
+            <span>Phone (Toll-Free): +1 (877) RCLIFI1 / +1 (877) 725-4341</span>
           </div>
           <div className="flex items-center gap-2">
             <Mail className="h-4 w-4 text-primary shrink-0" />

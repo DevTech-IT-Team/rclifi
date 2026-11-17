@@ -47,7 +47,7 @@ const SUPPORTED_GAMES: GameItem[] = [
     badge: "Competitive Esports",
     description:
       "Every frame and millisecond matters. LiFi ensures absolute precision with sub-millisecond latency and pristine tickrate consistency for tier-1 competitive matchmaking.",
-    image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=800&auto=format&fit=crop",
+    image: "/games/cs2.jpg",
     latencyBenefit: "Deterministic ping with zero RF interference",
   },
   {
@@ -57,7 +57,7 @@ const SUPPORTED_GAMES: GameItem[] = [
     badge: "Battle Royale",
     description:
       "In fast-paced battle royale, milliseconds dictate survival. LiFi ensures your hit registration is immediate with zero micro-stutters across sprawling map zones.",
-    image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=800&auto=format&fit=crop",
+    image: "/games/cod-warzone.jpg",
     latencyBenefit: "Instantaneous hit-scan verification & low ping",
   },
   {
@@ -67,7 +67,7 @@ const SUPPORTED_GAMES: GameItem[] = [
     badge: "Tactical Shooter",
     description:
       "Get the ultimate competitive edge. Uninterrupted optical wireless means no more dropping packets mid-firefight or losing gunfights to Wi-Fi bufferbloat.",
-    image: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=800&auto=format&fit=crop",
+    image: "/games/valorant.png",
     latencyBenefit: "Sub-millisecond optical transport layer",
   },
   {
@@ -77,17 +77,17 @@ const SUPPORTED_GAMES: GameItem[] = [
     badge: "High-Mobility BR",
     description:
       "Experience fast-paced movement, wall-bounces, and intense vertical gunfights without the frustration of packet loss or rubberbanding.",
-    image: "https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&w=800&auto=format&fit=crop",
+    image: "/games/apex-legends.jpg",
     latencyBenefit: "Stable 0% packet loss connection",
   },
   {
     id: 7,
-    title: "Battlefield 6",
+    title: "Battlefield 2042",
     category: "fps",
     badge: "Combined Arms Warfare",
     description:
       "LiFi powers modern multiplayer gaming with near-zero latency and instant massive-map downloads, guaranteeing seamless connectivity across expansive 128-player combat zones.",
-    image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=800&auto=format&fit=crop",
+    image: "/games/battlefield.jpg",
     latencyBenefit: "High-bandwidth continuous optical stream",
   },
   {
@@ -97,7 +97,7 @@ const SUPPORTED_GAMES: GameItem[] = [
     badge: "Hero Shooter",
     description:
       "LiFi unleashes light-speed precision, delivering near-zero latency, ultra-low ping, and instantaneous reaction speeds for decisive lane dominance.",
-    image: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=800&auto=format&fit=crop",
+    image: "/games/deadlock.jpg",
     latencyBenefit: "Near-zero jitter for frame-perfect abilities",
   },
 ];
@@ -112,25 +112,25 @@ function GamerPage() {
   return (
     <div className="min-h-screen bg-background text-foreground font-sans antialiased selection:bg-cyan-500/20 selection:text-primary">
       <Header />
-      
+
       <main className="pt-36 sm:pt-40 pb-20">
         {/* Hero Section */}
         <section className="relative w-full h-[60vh] min-h-[520px] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 z-0">
-            <img 
-              src="/gta6-hero.jpg" 
-              alt="Next-Gen Gaming Environment - GTA 6 & Optical Gaming" 
+            <img
+              src="/gta6-hero.jpg"
+              alt="Next-Gen Gaming Environment - GTA 6 & Optical Gaming"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-black/40 to-black/30" />
           </div>
-          
+
           <div className="relative z-10 max-w-5xl mx-auto px-6 text-center space-y-6">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-cyan-400/40 text-cyan-300 text-xs sm:text-sm font-bold tracking-widest uppercase shadow-glow">
               <Gamepad2 className="w-4 h-4 text-cyan-400" />
               <span>Gaming Powered by Light</span>
             </div>
-            
+
             <div className="bg-black/50 backdrop-blur-md p-8 sm:p-10 rounded-3xl border border-white/15 shadow-2xl mx-auto inline-block max-w-3xl">
               <h1 className="text-4xl md:text-6xl font-black text-white tracking-tight drop-shadow-lg mb-4">
                 Play Without Limits
@@ -144,40 +144,40 @@ function GamerPage() {
 
         {/* Features Section */}
         <section className="max-w-7xl mx-auto px-6 mt-16">
-           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-card border border-border p-8 rounded-2xl shadow-soft hover:-translate-y-1 transition-transform">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6">
-                  <Zap className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-bold mb-3">Zero Latency (<span className="text-cyan-600 font-mono">&lt;1ms</span>)</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Radio waves get congested and buffer packets. Light travels in direct line of sight with deterministic sub-millisecond responses for instantaneous reaction speeds.
-                </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-card border border-border p-8 rounded-2xl shadow-soft hover:-translate-y-1 transition-transform">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6">
+                <Zap className="w-6 h-6" />
               </div>
-              <div className="bg-card border border-border p-8 rounded-2xl shadow-soft hover:-translate-y-1 transition-transform">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6">
-                  <Wifi className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-bold mb-3">Zero Radio Interference</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Microwaves, neighbor's routers, baby monitors, and bluetooth devices won't disrupt your connection. Your LiFi channel is 100% optical and immune to RF noise.
-                </p>
+              <h3 className="text-xl font-bold mb-3">Zero Latency (<span className="text-cyan-600 font-mono">&lt;1ms</span>)</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                Radio waves get congested and buffer packets. Light travels in direct line of sight with deterministic sub-millisecond responses for instantaneous reaction speeds.
+              </p>
+            </div>
+            <div className="bg-card border border-border p-8 rounded-2xl shadow-soft hover:-translate-y-1 transition-transform">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6">
+                <Wifi className="w-6 h-6" />
               </div>
-              <div className="bg-card border border-border p-8 rounded-2xl shadow-soft hover:-translate-y-1 transition-transform">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6">
-                  <ShieldCheck className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-bold mb-3">Maximum Security</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  If light is contained within your gaming room, so is your network traffic. Say goodbye to local network packet sniffing, IP leaks, and wireless exploits.
-                </p>
+              <h3 className="text-xl font-bold mb-3">Zero Radio Interference</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                Microwaves, neighbor's routers, baby monitors, and bluetooth devices won't disrupt your connection. Your LiFi channel is 100% optical and immune to RF noise.
+              </p>
+            </div>
+            <div className="bg-card border border-border p-8 rounded-2xl shadow-soft hover:-translate-y-1 transition-transform">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6">
+                <ShieldCheck className="w-6 h-6" />
               </div>
-           </div>
+              <h3 className="text-xl font-bold mb-3">Maximum Security</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                If light is contained within your gaming room, so is your network traffic. Say goodbye to local network packet sniffing, IP leaks, and wireless exploits.
+              </p>
+            </div>
+          </div>
         </section>
 
         {/* Content Section */}
         <section className="max-w-7xl mx-auto px-6 mt-20 grid grid-cols-1 lg:grid-cols-12 gap-10">
-          
+
           {/* Main Feed: Games Grid */}
           <div className="lg:col-span-8 space-y-8">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b pb-6">
@@ -190,31 +190,28 @@ function GamerPage() {
               <div className="flex items-center gap-1.5 rounded-xl bg-slate-100 p-1 border border-border">
                 <button
                   onClick={() => setSelectedCategory("all")}
-                  className={`rounded-lg px-3 py-1.5 text-xs font-semibold transition-all ${
-                    selectedCategory === "all"
+                  className={`rounded-lg px-3 py-1.5 text-xs font-semibold transition-all ${selectedCategory === "all"
                       ? "bg-white text-primary shadow-sm"
                       : "text-muted-foreground hover:text-foreground"
-                  }`}
+                    }`}
                 >
                   All ({SUPPORTED_GAMES.length})
                 </button>
                 <button
                   onClick={() => setSelectedCategory("open-world")}
-                  className={`rounded-lg px-3 py-1.5 text-xs font-semibold transition-all ${
-                    selectedCategory === "open-world"
+                  className={`rounded-lg px-3 py-1.5 text-xs font-semibold transition-all ${selectedCategory === "open-world"
                       ? "bg-white text-primary shadow-sm"
                       : "text-muted-foreground hover:text-foreground"
-                  }`}
+                    }`}
                 >
                   Open World & RPG
                 </button>
                 <button
                   onClick={() => setSelectedCategory("fps")}
-                  className={`rounded-lg px-3 py-1.5 text-xs font-semibold transition-all ${
-                    selectedCategory === "fps"
+                  className={`rounded-lg px-3 py-1.5 text-xs font-semibold transition-all ${selectedCategory === "fps"
                       ? "bg-white text-primary shadow-sm"
                       : "text-muted-foreground hover:text-foreground"
-                  }`}
+                    }`}
                 >
                   Shooters
                 </button>
@@ -225,9 +222,9 @@ function GamerPage() {
               {filteredGames.map((game) => (
                 <article key={game.id} className="group relative bg-card border border-border rounded-2xl overflow-hidden hover:shadow-glow transition-all duration-300 flex flex-col">
                   <div className="h-48 overflow-hidden relative">
-                    <img 
-                      src={game.image} 
-                      alt={game.title} 
+                    <img
+                      src={game.image}
+                      alt={game.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                     <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 flex items-center gap-1.5">
@@ -286,10 +283,10 @@ function GamerPage() {
               </h3>
               <ul className="space-y-4">
                 {[
-                  "No WiFi Dropouts Mid-Match", 
-                  "Gigabit Download Speeds", 
-                  "Unhackable LAN Network", 
-                  "Zero Ping Spikes", 
+                  "No WiFi Dropouts Mid-Match",
+                  "Gigabit Download Speeds",
+                  "Physically Contained LAN Network",
+                  "Zero Ping Spikes",
                 ].map((tag, i) => (
                   <li key={i} className="flex items-center gap-3 text-sm text-muted-foreground">
                     <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />

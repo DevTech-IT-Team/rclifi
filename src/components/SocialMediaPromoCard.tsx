@@ -9,7 +9,7 @@ export function SocialMediaPromoCard() {
   const promoImageSrc = "/lumen/lumenfi-social-promo.jpg";
 
   const socialCaptions = {
-    linkedin: `🚀 Welcome to the Future of High-Performance, Unhackable Wireless: The LumenFi LiFi Lamp! 💡🌐
+    linkedin: `🚀 Welcome to the Future of High-Performance, Physically Contained Wireless: The LumenFi LiFi Lamp! 💡🌐
 
 Say goodbye to congested Wi-Fi radio frequencies and vulnerability to remote snooping. The LumenFi Optical Lamp transforms pure light into gigabit-speed, deterministic optical connectivity.
 
